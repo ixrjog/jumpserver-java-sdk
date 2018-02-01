@@ -24,6 +24,10 @@ public class JmsUsersService extends JmsBaseService {
         return super.delete(user, ApiConstants.USERS + user.getId(), user.getId());
     }
 
+    public Map<String, String> queryUser(String id) {
+        return super.query(id, ApiConstants.USERS);
+    }
+
     public Map<String, String> addUserGroup(Usergroup usergroup) {
         return super.add(usergroup, ApiConstants.USERGROUPS);
     }
@@ -34,6 +38,10 @@ public class JmsUsersService extends JmsBaseService {
 
     public Map<String, String> deleteUserGroup(Usergroup usergroup) {
         return super.delete(usergroup, ApiConstants.USERGROUPS + usergroup.getId(), usergroup.getId());
+    }
+
+    public Map<String, String> queryUserGroup(String id) {
+        return super.query(id, ApiConstants.USERGROUPS);
     }
 
     public Map<String, String> userPasswordReset(User user) {

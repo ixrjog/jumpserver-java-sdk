@@ -23,4 +23,8 @@ public class JmsPermissionService extends JmsBaseService{
     public Map<String, String> deleteAssetpermission(Assetpermission assetpermission) {
         return super.delete(assetpermission,ApiConstants.ASSET_PERMISSIONS,assetpermission.getId());
     }
+
+    public Map<String, String> queryAssetpermission(String id) {
+        return super.query(id, ApiConstants.ASSET_PERMISSIONS);
+    }
 }

@@ -17,21 +17,6 @@ public class JmsUserServiceTest {
     }
 
     @Test
-    public void t1() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
-        String token = jmsUsersService.getToken();
-        System.out.println(token);
-
-//        JSONObject jsonObject = new JSONObject();
-//        jsonObject.put("name", "王大锤");
-//        jsonObject.put("username", "王大锤");
-//        jsonObject.put("email", "wdc@fit2cloiud.com");
-//        jsonObject.put("groups", new String[]{});
-//        Map<String, String> map = jmsUsersService.addUser(jsonObject.toString(), token);
-//        System.out.println(map.toString());
-    }
-
-    @Test
     public void t12() {
         JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
         String token = jmsUsersService.getToken();
@@ -65,6 +50,18 @@ public class JmsUserServiceTest {
         User user = new User();
         user.setId("363c5584-6331-4b82-a595-e2844635f766");
         Map<String, String> map = jmsUsersService.deleteUser(user);
+        System.out.println(map.toString());
+    }
+
+    @Test
+    public void t15() {
+        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
+        String token = jmsUsersService.getToken();
+        System.out.println(token);
+//        User user = new User();
+//        user.setId("9e39700c-6a7b-4f7d-9c8f-2ed52e1b8faf");
+//        Map<String, String> map = jmsUsersService.queryUser("9e39700c-6a7b-4f7d-9c8f-2ed52e1b8faf");
+        Map<String, String> map = jmsUsersService.queryUser(null);
         System.out.println(map.toString());
     }
 

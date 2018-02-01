@@ -8,6 +8,7 @@ import com.jumpserver.sdk.base.JmsException;
 import com.jumpserver.sdk.request.JmsRequest;
 import org.apache.commons.lang.StringUtils;
 
+import java.util.HashMap;
 import java.util.Map;
 
 public class JmsBaseService {
@@ -81,6 +82,21 @@ public class JmsBaseService {
             }
             String jsonStr = JSON.toJSONString(object);
             Map<String, String> map = JmsRequest.getRequest(this.URL + apiUrl + id + "/", jsonStr, ApiType.API_DELETE, this.TOKEN);
+            return map;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new JmsException(e.getMessage());
+        }
+    }
+
+    public Map<String, String> query(String id, String apiUrl) {
+        try {
+            Map<String, String> map = new HashMap<>();
+            if (StringUtils.isNotBlank(id)) {
+                map = JmsRequest.getRequest(this.URL + apiUrl + id + "/", null, ApiType.API_GET, this.TOKEN);
+            } else {
+                map = JmsRequest.getRequest(this.URL + apiUrl, null, ApiType.API_GET, this.TOKEN);
+            }
             return map;
         } catch (Exception e) {
             e.printStackTrace();

@@ -24,6 +24,10 @@ public class JmsAssetsService extends JmsBaseService {
         return super.delete(asset,ApiConstants.ASSETS,asset.getId());
     }
 
+    public Map<String, String> queryAsset(String id) {
+        return super.query(id, ApiConstants.ASSETS);
+    }
+
     //资产组
     public Map<String, String> addAssetGroups(Assetgroup assetgroup) {
         return super.add(assetgroup, ApiConstants.ASSETGROUPS);
@@ -37,17 +41,25 @@ public class JmsAssetsService extends JmsBaseService {
         return  super.delete(assetgroup,ApiConstants.ASSETGROUPS,assetgroup.getId());
     }
 
+    public Map<String, String> queryAssetGroups(String id) {
+        return super.query(id, ApiConstants.ASSETGROUPS);
+    }
+
     // 集群
-    public Map<String, String> addCluster(AssetsCluster assetsCluster) {
+    public Map<String, String> addAssetCluster(AssetsCluster assetsCluster) {
         return super.add(assetsCluster, ApiConstants.CLUSTERS);
     }
 
-    public Map<String, String> updateCluster(AssetsCluster assetsCluster) {
+    public Map<String, String> updateAssetCluster(AssetsCluster assetsCluster) {
         return super.update(assetsCluster, ApiConstants.CLUSTERS, assetsCluster.getId());
     }
 
-    public Map<String, String> deleteCluster(AssetsCluster assetsCluster) {
+    public Map<String, String> deleteAssetCluster(AssetsCluster assetsCluster) {
         return super.delete(assetsCluster, ApiConstants.CLUSTERS, assetsCluster.getId());
+    }
+
+    public Map<String, String> queryAssetCluster(String id) {
+        return super.query(id, ApiConstants.CLUSTERS);
     }
 
     //管理用户
@@ -63,6 +75,10 @@ public class JmsAssetsService extends JmsBaseService {
         return super.delete(adminUser, ApiConstants.ADMIN_USERS, adminUser.getId());
     }
 
+    public Map<String, String> queryAdminUser(String id) {
+        return super.query(id, ApiConstants.ADMIN_USERS);
+    }
+
     //系统用户
     public Map<String, String> addSystemUser(SystemUser systemUser) {
         return super.add(systemUser, ApiConstants.SYSTEM_USERS);
@@ -76,6 +92,10 @@ public class JmsAssetsService extends JmsBaseService {
         return super.delete(systemUser, ApiConstants.SYSTEM_USERS, systemUser.getId());
     }
 
+    public Map<String, String> querySystemUser(String id) {
+        return super.query(id, ApiConstants.SYSTEM_USERS);
+    }
+
     //标签
     public Map<String, String> addAssetsLabel(AssetsLabel assetsLabel) {
         return super.add(assetsLabel, ApiConstants.LABLES);
@@ -87,6 +107,10 @@ public class JmsAssetsService extends JmsBaseService {
 
     public Map<String, String> deleteAssetsLabel(AssetsLabel assetsLabel) {
         return super.delete(assetsLabel, ApiConstants.LABLES, assetsLabel.getId());
+    }
+
+    public Map<String, String> queryAssetsLabel(String id) {
+        return super.query(id, ApiConstants.LABLES);
     }
 
 }

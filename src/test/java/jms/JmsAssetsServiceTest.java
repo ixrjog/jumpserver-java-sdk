@@ -75,7 +75,7 @@ public class JmsAssetsServiceTest {
         AssetsCluster assetsCluster = new AssetsCluster();
         assetsCluster.setName("SDK资产集群");
         assetsCluster.setAssets(new String[]{});
-        Map<String, String> map = JmsAssetsService.addCluster(assetsCluster);
+        Map<String, String> map = JmsAssetsService.addAssetCluster(assetsCluster);
         System.out.println(map.toString());
     }
 
@@ -87,7 +87,7 @@ public class JmsAssetsServiceTest {
         AssetsCluster assetsCluster = new AssetsCluster();
         assetsCluster.setName("SDK资产集群-modify");
         assetsCluster.setId("7533698c-9754-4980-a887-8d90248685cf");
-        Map<String, String> map = JmsAssetsService.updateCluster(assetsCluster);
+        Map<String, String> map = JmsAssetsService.updateAssetCluster(assetsCluster);
         System.out.println(map.toString());
     }
 
@@ -98,7 +98,7 @@ public class JmsAssetsServiceTest {
         System.out.println(token);
         AssetsCluster assetsCluster = new AssetsCluster();
         assetsCluster.setId("7533698c-9754-4980-a887-8d90248685cf");
-        Map<String, String> map = JmsAssetsService.deleteCluster(assetsCluster);
+        Map<String, String> map = JmsAssetsService.deleteAssetCluster(assetsCluster);
         System.out.println(map.toString());
     }
 

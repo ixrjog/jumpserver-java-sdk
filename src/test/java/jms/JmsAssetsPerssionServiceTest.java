@@ -38,6 +38,13 @@ public class JmsAssetsPerssionServiceTest {
         System.out.println(map);
     }
 
+    @Test
+    public void t13() {
+        String id = "5becc8d4-fbfd-4ad0-b2f5-07c806b9359b";
+        Map<String, String> map = jmsPermissionService.queryAssetpermission(id);
+        System.out.println(map);
+    }
+
 
 
 
