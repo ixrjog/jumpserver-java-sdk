@@ -13,7 +13,12 @@ public class ApiConstants{
     public static final  String ASSETGROUPS = "/api/assets/v1/groups/";
     public static final  String CLUSTERS = "/api/assets/v1/clusters/";
     public static final  String LABLES = "/api/assets/v1/labels/";
+
     public static final  String ADMIN_USERS = "/api/assets/v1/admin-user/";
+    public static final  String ADMIN_USERS_CLUSTER_START = "/api/assets/v1/admin-user/";
+    public static final  String ADMIN_USERS_CLUSTER_END = "/clusters/";
+
+
     public static final  String SYSTEM_USERS = "/api/assets/v1/system-user/";
 
     public static final  String ASSET_PERMISSIONS = "/api/perms/v1/asset-permissions/";

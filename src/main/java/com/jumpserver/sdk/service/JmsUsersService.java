@@ -17,11 +17,11 @@ public class JmsUsersService extends JmsBaseService {
     }
 
     public Map<String, String> updateUser(User user) {
-        return super.update(user, ApiConstants.USERS + user.getId(), user.getId());
+        return super.update(user, ApiConstants.USERS, user.getId());
     }
 
     public Map<String, String> deleteUser(User user) {
-        return super.delete(user, ApiConstants.USERS + user.getId(), user.getId());
+        return super.delete(user, ApiConstants.USERS, user.getId());
     }
 
     public Map<String, String> queryUser(String id) {
@@ -33,11 +33,11 @@ public class JmsUsersService extends JmsBaseService {
     }
 
     public Map<String, String> updateUserGroup(Usergroup usergroup) {
-        return super.update(usergroup, ApiConstants.USERGROUPS + usergroup.getId(), usergroup.getId());
+        return super.update(usergroup, ApiConstants.USERGROUPS, usergroup.getId());
     }
 
     public Map<String, String> deleteUserGroup(Usergroup usergroup) {
-        return super.delete(usergroup, ApiConstants.USERGROUPS + usergroup.getId(), usergroup.getId());
+        return super.delete(usergroup, ApiConstants.USERGROUPS, usergroup.getId());
     }
 
     public Map<String, String> queryUserGroup(String id) {

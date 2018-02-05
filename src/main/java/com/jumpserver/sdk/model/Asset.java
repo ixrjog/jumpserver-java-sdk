@@ -11,7 +11,7 @@ public class Asset {
 
     private Integer port;
 
-    private Boolean isActive;
+    private Boolean is_active;
 
     private String type;
 
@@ -67,6 +67,16 @@ public class Asset {
 
     private String comment;
 
+    private String[] groups;
+
+    public String[] getGroups() {
+        return groups;
+    }
+
+    public void setGroups(String[] groups) {
+        this.groups = groups;
+    }
+
     public String getId() {
         return id;
     }
@@ -99,12 +109,12 @@ public class Asset {
         this.port = port;
     }
 
-    public Boolean getIsActive() {
-        return isActive;
+    public Boolean getIs_active() {
+        return is_active;
     }
 
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
+    public void setIs_active(Boolean is_active) {
+        this.is_active = is_active;
     }
 
     public String getType() {

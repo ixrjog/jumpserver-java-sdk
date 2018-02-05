@@ -25,6 +25,16 @@ public class AdminUser {
 
     private String becomePass;
 
+    private String[] clusters;
+
+    public String[] getClusters() {
+        return clusters;
+    }
+
+    public void setClusters(String[] clusters) {
+        this.clusters = clusters;
+    }
+
     public String getId() {
         return id;
     }

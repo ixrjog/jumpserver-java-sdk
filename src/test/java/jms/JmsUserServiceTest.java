@@ -19,8 +19,8 @@ public class JmsUserServiceTest {
     @Test
     public void t12() {
         JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
-        String token = jmsUsersService.getToken();
-        System.out.println(token);
+//        String token = jmsUsersService.getToken();
+//        System.out.println(token);
         User user = new User();
         user.setUsername("王大锤");
         user.setName("王大锤");

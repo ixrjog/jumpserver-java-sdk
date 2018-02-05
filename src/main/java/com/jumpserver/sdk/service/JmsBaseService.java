@@ -22,6 +22,7 @@ public class JmsBaseService {
         this.URL = url;
         this.USERNAME = username;
         this.PASSWORD = password;
+        getToken();
     }
 
     public String getToken() {
@@ -53,6 +54,9 @@ public class JmsBaseService {
     public Map<String, String> commonUpdate(Object object, String apiUrlStart, String apiUrlEnd, String id) {
         try {
             String jsonStr = JSON.toJSONString(object);
+            JSONObject jsonObject = JSON.parseObject(jsonStr);
+            jsonObject.remove("id");
+            jsonStr = jsonObject.toString();
             Map<String, String> map = JmsRequest.getRequest(this.URL + apiUrlStart + id + apiUrlEnd, jsonStr, ApiType.API_PATCH, this.TOKEN);
             return map;
         } catch (Exception e) {

@@ -13,7 +13,7 @@ public class User {
 
     private String lastName;
 
-    private Boolean isActive;
+    private Boolean is_active;
 
     private Date dateJoined;
     //required
@@ -89,12 +89,12 @@ public class User {
         this.lastName = lastName == null ? null : lastName.trim();
     }
 
-    public Boolean getIsActive() {
-        return isActive;
+    public Boolean getIs_active() {
+        return is_active;
     }
 
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
+    public void setIs_active(Boolean is_active) {
+        this.is_active = is_active;
     }
 
     public Date getDateJoined() {

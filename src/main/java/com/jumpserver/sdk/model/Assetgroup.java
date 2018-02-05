@@ -13,6 +13,8 @@ public class Assetgroup {
 
     private String comment;
 
+    private String[] assets;
+
     public String getId() {
         return id;
     }
@@ -51,5 +53,13 @@ public class Assetgroup {
 
     public void setComment(String comment) {
         this.comment = comment == null ? null : comment.trim();
+    }
+
+    public String[] getAssets() {
+        return assets;
+    }
+
+    public void setAssets(String[] assets) {
+        this.assets = assets;
     }
 }

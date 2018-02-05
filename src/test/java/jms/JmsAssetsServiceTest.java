@@ -122,6 +122,15 @@ public class JmsAssetsServiceTest {
         System.out.println(map);
     }
 
+    @Test
+    public void au3() {
+        AdminUser adminUser = new AdminUser();
+        adminUser.setId("e40d3bc6-544f-422d-bcb1-333993a71bd7");
+        adminUser.setClusters(new String[]{});
+        Map<String, String> map = jmsAssetsService.updateAdminUserCluster(adminUser);
+        System.out.println(map);
+    }
+
     //系统用户
     @Test
     public void su1() {
@@ -141,6 +150,8 @@ public class JmsAssetsServiceTest {
         Map<String, String> map = jmsAssetsService.updateSystemUser(systemUser);
         System.out.println(map);
     }
+
+
 
     //标签
     @Test
