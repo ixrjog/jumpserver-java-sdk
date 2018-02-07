@@ -1,6 +1,7 @@
 package com.jumpserver.sdk.request;
 
 import com.jumpserver.sdk.base.ApiType;
+import com.jumpserver.sdk.base.JmsException;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
 import org.apache.http.client.config.RequestConfig;
@@ -92,6 +93,7 @@ public class JmsRequest {
             if (null != response.getEntity()) {
                 strResult += EntityUtils.toString(response.getEntity(), "UTF-8");
             }
+            throw new JmsException(strResult);
         } else {
             //删除成功也不返回数据
             if (null != response.getEntity()) {

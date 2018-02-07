@@ -9,9 +9,13 @@ public class Asset {
 
     private String hostname;
 
+    private String cluster_name;
+
     private Integer port;
 
     private Boolean is_active;
+
+    private Boolean is_connective;
 
     private String type;
 
@@ -19,7 +23,7 @@ public class Asset {
 
     private String status;
 
-    private String publicIp;
+    private String public_ip;
 
     private String remoteCardIp;
 
@@ -35,54 +39,50 @@ public class Asset {
 
     private String sn;
 
-    private String cpuModel;
+    private String cpu_model;
 
-    private Integer cpuCount;
+    private Integer cpu_count;
 
-    private Integer cpuCores;
+    private Integer cpu_cores;
 
     private String memory;
 
-    private String diskTotal;
+    private String disk_total;
 
-    private String diskInfo;
+    private String disk_info;
 
     private String platform;
 
     private String os;
 
-    private String osVersion;
+    private String os_version;
 
-    private String osArch;
+    private String os_arch;
 
-    private String hostnameRaw;
+    private String hostname_raw;
 
-    private String createdBy;
+    private String created_by;
 
-    private Date dateCreated;
+    private Date date_created;
 
-    private String adminUserId;
+    private String admin_user;
 
-    private String clusterId;
+    private String cluster;
 
     private String comment;
 
+    private String hardware_info;
+
     private String[] groups;
 
-    public String[] getGroups() {
-        return groups;
-    }
-
-    public void setGroups(String[] groups) {
-        this.groups = groups;
-    }
+    private String[] labels;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
     public String getIp() {
@@ -90,7 +90,7 @@ public class Asset {
     }
 
     public void setIp(String ip) {
-        this.ip = ip == null ? null : ip.trim();
+        this.ip = ip;
     }
 
     public String getHostname() {
@@ -98,7 +98,15 @@ public class Asset {
     }
 
     public void setHostname(String hostname) {
-        this.hostname = hostname == null ? null : hostname.trim();
+        this.hostname = hostname;
+    }
+
+    public String getCluster_name() {
+        return cluster_name;
+    }
+
+    public void setCluster_name(String cluster_name) {
+        this.cluster_name = cluster_name;
     }
 
     public Integer getPort() {
@@ -117,12 +125,20 @@ public class Asset {
         this.is_active = is_active;
     }
 
+    public Boolean getIs_connective() {
+        return is_connective;
+    }
+
+    public void setIs_connective(Boolean is_connective) {
+        this.is_connective = is_connective;
+    }
+
     public String getType() {
         return type;
     }
 
     public void setType(String type) {
-        this.type = type == null ? null : type.trim();
+        this.type = type;
     }
 
     public String getEnv() {
@@ -130,7 +146,7 @@ public class Asset {
     }
 
     public void setEnv(String env) {
-        this.env = env == null ? null : env.trim();
+        this.env = env;
     }
 
     public String getStatus() {
@@ -138,15 +154,15 @@ public class Asset {
     }
 
     public void setStatus(String status) {
-        this.status = status == null ? null : status.trim();
+        this.status = status;
     }
 
-    public String getPublicIp() {
-        return publicIp;
+    public String getPublic_ip() {
+        return public_ip;
     }
 
-    public void setPublicIp(String publicIp) {
-        this.publicIp = publicIp == null ? null : publicIp.trim();
+    public void setPublic_ip(String public_ip) {
+        this.public_ip = public_ip;
     }
 
     public String getRemoteCardIp() {
@@ -154,7 +170,7 @@ public class Asset {
     }
 
     public void setRemoteCardIp(String remoteCardIp) {
-        this.remoteCardIp = remoteCardIp == null ? null : remoteCardIp.trim();
+        this.remoteCardIp = remoteCardIp;
     }
 
     public String getCabinetNo() {
@@ -162,7 +178,7 @@ public class Asset {
     }
 
     public void setCabinetNo(String cabinetNo) {
-        this.cabinetNo = cabinetNo == null ? null : cabinetNo.trim();
+        this.cabinetNo = cabinetNo;
     }
 
     public Integer getCabinetPos() {
@@ -178,7 +194,7 @@ public class Asset {
     }
 
     public void setNumber(String number) {
-        this.number = number == null ? null : number.trim();
+        this.number = number;
     }
 
     public String getVendor() {
@@ -186,7 +202,7 @@ public class Asset {
     }
 
     public void setVendor(String vendor) {
-        this.vendor = vendor == null ? null : vendor.trim();
+        this.vendor = vendor;
     }
 
     public String getModel() {
@@ -194,7 +210,7 @@ public class Asset {
     }
 
     public void setModel(String model) {
-        this.model = model == null ? null : model.trim();
+        this.model = model;
     }
 
     public String getSn() {
@@ -202,31 +218,31 @@ public class Asset {
     }
 
     public void setSn(String sn) {
-        this.sn = sn == null ? null : sn.trim();
+        this.sn = sn;
     }
 
-    public String getCpuModel() {
-        return cpuModel;
+    public String getCpu_model() {
+        return cpu_model;
     }
 
-    public void setCpuModel(String cpuModel) {
-        this.cpuModel = cpuModel == null ? null : cpuModel.trim();
+    public void setCpu_model(String cpu_model) {
+        this.cpu_model = cpu_model;
     }
 
-    public Integer getCpuCount() {
-        return cpuCount;
+    public Integer getCpu_count() {
+        return cpu_count;
     }
 
-    public void setCpuCount(Integer cpuCount) {
-        this.cpuCount = cpuCount;
+    public void setCpu_count(Integer cpu_count) {
+        this.cpu_count = cpu_count;
     }
 
-    public Integer getCpuCores() {
-        return cpuCores;
+    public Integer getCpu_cores() {
+        return cpu_cores;
     }
 
-    public void setCpuCores(Integer cpuCores) {
-        this.cpuCores = cpuCores;
+    public void setCpu_cores(Integer cpu_cores) {
+        this.cpu_cores = cpu_cores;
     }
 
     public String getMemory() {
@@ -234,23 +250,23 @@ public class Asset {
     }
 
     public void setMemory(String memory) {
-        this.memory = memory == null ? null : memory.trim();
+        this.memory = memory;
     }
 
-    public String getDiskTotal() {
-        return diskTotal;
+    public String getDisk_total() {
+        return disk_total;
     }
 
-    public void setDiskTotal(String diskTotal) {
-        this.diskTotal = diskTotal == null ? null : diskTotal.trim();
+    public void setDisk_total(String disk_total) {
+        this.disk_total = disk_total;
     }
 
-    public String getDiskInfo() {
-        return diskInfo;
+    public String getDisk_info() {
+        return disk_info;
     }
 
-    public void setDiskInfo(String diskInfo) {
-        this.diskInfo = diskInfo == null ? null : diskInfo.trim();
+    public void setDisk_info(String disk_info) {
+        this.disk_info = disk_info;
     }
 
     public String getPlatform() {
@@ -258,7 +274,7 @@ public class Asset {
     }
 
     public void setPlatform(String platform) {
-        this.platform = platform == null ? null : platform.trim();
+        this.platform = platform;
     }
 
     public String getOs() {
@@ -266,63 +282,63 @@ public class Asset {
     }
 
     public void setOs(String os) {
-        this.os = os == null ? null : os.trim();
+        this.os = os;
     }
 
-    public String getOsVersion() {
-        return osVersion;
+    public String getOs_version() {
+        return os_version;
     }
 
-    public void setOsVersion(String osVersion) {
-        this.osVersion = osVersion == null ? null : osVersion.trim();
+    public void setOs_version(String os_version) {
+        this.os_version = os_version;
     }
 
-    public String getOsArch() {
-        return osArch;
+    public String getOs_arch() {
+        return os_arch;
     }
 
-    public void setOsArch(String osArch) {
-        this.osArch = osArch == null ? null : osArch.trim();
+    public void setOs_arch(String os_arch) {
+        this.os_arch = os_arch;
     }
 
-    public String getHostnameRaw() {
-        return hostnameRaw;
+    public String getHostname_raw() {
+        return hostname_raw;
     }
 
-    public void setHostnameRaw(String hostnameRaw) {
-        this.hostnameRaw = hostnameRaw == null ? null : hostnameRaw.trim();
+    public void setHostname_raw(String hostname_raw) {
+        this.hostname_raw = hostname_raw;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public String getCreated_by() {
+        return created_by;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy == null ? null : createdBy.trim();
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    public Date getDate_created() {
+        return date_created;
     }
 
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
     }
 
-    public String getAdminUserId() {
-        return adminUserId;
+    public String getAdmin_user() {
+        return admin_user;
     }
 
-    public void setAdminUserId(String adminUserId) {
-        this.adminUserId = adminUserId == null ? null : adminUserId.trim();
+    public void setAdmin_user(String admin_user) {
+        this.admin_user = admin_user;
     }
 
-    public String getClusterId() {
-        return clusterId;
+    public String getCluster() {
+        return cluster;
     }
 
-    public void setClusterId(String clusterId) {
-        this.clusterId = clusterId == null ? null : clusterId.trim();
+    public void setCluster(String cluster) {
+        this.cluster = cluster;
     }
 
     public String getComment() {
@@ -330,6 +346,30 @@ public class Asset {
     }
 
     public void setComment(String comment) {
-        this.comment = comment == null ? null : comment.trim();
+        this.comment = comment;
+    }
+
+    public String getHardware_info() {
+        return hardware_info;
+    }
+
+    public void setHardware_info(String hardware_info) {
+        this.hardware_info = hardware_info;
+    }
+
+    public String[] getGroups() {
+        return groups;
+    }
+
+    public void setGroups(String[] groups) {
+        this.groups = groups;
+    }
+
+    public String[] getLabels() {
+        return labels;
+    }
+
+    public void setLabels(String[] labels) {
+        this.labels = labels;
     }
 }
