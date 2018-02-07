@@ -23,6 +23,10 @@ public class ApiConstants{
 
     public static final  String ASSET_PERMISSIONS = "/api/perms/v1/asset-permissions/";
 
+    public static final  String LUNA_TOKEN = "/api/users/v1/connection-token/";
+    public static final  String LUNA_TOKEN_VALIDATE = "/api/users/v1/connection-token/?token=";
+    public static final  String LUNA_CONNECT = "/luna/term/";
+
 
 
 
