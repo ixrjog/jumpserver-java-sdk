@@ -7,15 +7,15 @@ public class User {
 
     private String password;
 
-    private Date lastLogin;
+    private Date last_login;
 
-    private String firstName;
+    private String first_name;
 
-    private String lastName;
+    private String last_name;
 
     private Boolean is_active;
 
-    private Date dateJoined;
+    private Date date_joined;
     //required
     private String username;
     //required
@@ -33,28 +33,30 @@ public class User {
 
     private String phone;
 
-    private Boolean enableOtp;
+    private Boolean enable_otp;
 
-    private String secretKeyOtp;
+    private String secret_key_otp;
 
     private String privateKey;
 
     private String publicKey;
 
-    private Boolean isFirstLogin;
+    private Boolean is_first_login;
 
-    private Date dateExpired;
+    private Date date_expired;
 
-    private String createdBy;
+    private String created_by;
 
     private String comment;
+
+    private String[] user_permissions;
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
     public String getPassword() {
@@ -62,31 +64,31 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password;
     }
 
-    public Date getLastLogin() {
-        return lastLogin;
+    public Date getLast_login() {
+        return last_login;
     }
 
-    public void setLastLogin(Date lastLogin) {
-        this.lastLogin = lastLogin;
+    public void setLast_login(Date last_login) {
+        this.last_login = last_login;
     }
 
-    public String getFirstName() {
-        return firstName;
+    public String getFirst_name() {
+        return first_name;
     }
 
-    public void setFirstName(String firstName) {
-        this.firstName = firstName == null ? null : firstName.trim();
+    public void setFirst_name(String first_name) {
+        this.first_name = first_name;
     }
 
-    public String getLastName() {
-        return lastName;
+    public String getLast_name() {
+        return last_name;
     }
 
-    public void setLastName(String lastName) {
-        this.lastName = lastName == null ? null : lastName.trim();
+    public void setLast_name(String last_name) {
+        this.last_name = last_name;
     }
 
     public Boolean getIs_active() {
@@ -97,12 +99,12 @@ public class User {
         this.is_active = is_active;
     }
 
-    public Date getDateJoined() {
-        return dateJoined;
+    public Date getDate_joined() {
+        return date_joined;
     }
 
-    public void setDateJoined(Date dateJoined) {
-        this.dateJoined = dateJoined;
+    public void setDate_joined(Date date_joined) {
+        this.date_joined = date_joined;
     }
 
     public String getUsername() {
@@ -110,7 +112,7 @@ public class User {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
     public String getName() {
@@ -118,7 +120,7 @@ public class User {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getEmail() {
@@ -126,7 +128,15 @@ public class User {
     }
 
     public void setEmail(String email) {
-        this.email = email == null ? null : email.trim();
+        this.email = email;
+    }
+
+    public String[] getGroups() {
+        return groups;
+    }
+
+    public void setGroups(String[] groups) {
+        this.groups = groups;
     }
 
     public String getRole() {
@@ -134,7 +144,7 @@ public class User {
     }
 
     public void setRole(String role) {
-        this.role = role == null ? null : role.trim();
+        this.role = role;
     }
 
     public String getAvatar() {
@@ -142,7 +152,7 @@ public class User {
     }
 
     public void setAvatar(String avatar) {
-        this.avatar = avatar == null ? null : avatar.trim();
+        this.avatar = avatar;
     }
 
     public String getWechat() {
@@ -150,7 +160,7 @@ public class User {
     }
 
     public void setWechat(String wechat) {
-        this.wechat = wechat == null ? null : wechat.trim();
+        this.wechat = wechat;
     }
 
     public String getPhone() {
@@ -158,23 +168,23 @@ public class User {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
-    public Boolean getEnableOtp() {
-        return enableOtp;
+    public Boolean getEnable_otp() {
+        return enable_otp;
     }
 
-    public void setEnableOtp(Boolean enableOtp) {
-        this.enableOtp = enableOtp;
+    public void setEnable_otp(Boolean enable_otp) {
+        this.enable_otp = enable_otp;
     }
 
-    public String getSecretKeyOtp() {
-        return secretKeyOtp;
+    public String getSecret_key_otp() {
+        return secret_key_otp;
     }
 
-    public void setSecretKeyOtp(String secretKeyOtp) {
-        this.secretKeyOtp = secretKeyOtp == null ? null : secretKeyOtp.trim();
+    public void setSecret_key_otp(String secret_key_otp) {
+        this.secret_key_otp = secret_key_otp;
     }
 
     public String getPrivateKey() {
@@ -182,7 +192,7 @@ public class User {
     }
 
     public void setPrivateKey(String privateKey) {
-        this.privateKey = privateKey == null ? null : privateKey.trim();
+        this.privateKey = privateKey;
     }
 
     public String getPublicKey() {
@@ -190,31 +200,31 @@ public class User {
     }
 
     public void setPublicKey(String publicKey) {
-        this.publicKey = publicKey == null ? null : publicKey.trim();
+        this.publicKey = publicKey;
     }
 
-    public Boolean getIsFirstLogin() {
-        return isFirstLogin;
+    public Boolean getIs_first_login() {
+        return is_first_login;
     }
 
-    public void setIsFirstLogin(Boolean isFirstLogin) {
-        this.isFirstLogin = isFirstLogin;
+    public void setIs_first_login(Boolean is_first_login) {
+        this.is_first_login = is_first_login;
     }
 
-    public Date getDateExpired() {
-        return dateExpired;
+    public Date getDate_expired() {
+        return date_expired;
     }
 
-    public void setDateExpired(Date dateExpired) {
-        this.dateExpired = dateExpired;
+    public void setDate_expired(Date date_expired) {
+        this.date_expired = date_expired;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public String getCreated_by() {
+        return created_by;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy == null ? null : createdBy.trim();
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
     }
 
     public String getComment() {
@@ -222,12 +232,14 @@ public class User {
     }
 
     public void setComment(String comment) {
-        this.comment = comment == null ? null : comment.trim();
+        this.comment = comment;
     }
 
-    public  String[] getGroups() {
-        return groups;
-    }public void   setGroups(String[] groups) {
-        this.groups = groups;
+    public String[] getUser_permissions() {
+        return user_permissions;
+    }
+
+    public void setUser_permissions(String[] user_permissions) {
+        this.user_permissions = user_permissions;
     }
 }

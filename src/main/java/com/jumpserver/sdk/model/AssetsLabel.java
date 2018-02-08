@@ -11,9 +11,9 @@ public class AssetsLabel {
 
     private String category;
 
-    private Boolean isActive;
+    private Boolean is_active;
 
-    private Date dateCreated;
+    private Date date_created;
 
     private String comment;
 
@@ -22,7 +22,7 @@ public class AssetsLabel {
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
     public String getName() {
@@ -30,7 +30,7 @@ public class AssetsLabel {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getValue() {
@@ -38,7 +38,7 @@ public class AssetsLabel {
     }
 
     public void setValue(String value) {
-        this.value = value == null ? null : value.trim();
+        this.value = value;
     }
 
     public String getCategory() {
@@ -46,23 +46,23 @@ public class AssetsLabel {
     }
 
     public void setCategory(String category) {
-        this.category = category == null ? null : category.trim();
+        this.category = category;
     }
 
-    public Boolean getIsActive() {
-        return isActive;
+    public Boolean getIs_active() {
+        return is_active;
     }
 
-    public void setIsActive(Boolean isActive) {
-        this.isActive = isActive;
+    public void setIs_active(Boolean is_active) {
+        this.is_active = is_active;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    public Date getDate_created() {
+        return date_created;
     }
 
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
     }
 
     public String getComment() {
@@ -70,6 +70,6 @@ public class AssetsLabel {
     }
 
     public void setComment(String comment) {
-        this.comment = comment == null ? null : comment.trim();
+        this.comment = comment;
     }
 }

@@ -11,36 +11,32 @@ public class SystemUser {
 
     private String password;
 
-    private Date dateCreated;
+    private String comment;
 
-    private Date dateUpdated;
+    private Date date_created;
 
-    private String createdBy;
+    private Date date_updated;
+
+    private String created_by;
 
     private Integer priority;
 
     private String protocol;
 
-    private Boolean autoPush;
+    private Boolean auto_push;
+
+    private String sudo;
 
     private String shell;
 
     private String[] cluster;
-
-    public String[] getCluster() {
-        return cluster;
-    }
-
-    public void setCluster(String[] cluster) {
-        this.cluster = cluster;
-    }
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
     public String getName() {
@@ -48,7 +44,7 @@ public class SystemUser {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getUsername() {
@@ -56,7 +52,7 @@ public class SystemUser {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
     public String getPassword() {
@@ -64,31 +60,39 @@ public class SystemUser {
     }
 
     public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+        this.password = password;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    public String getComment() {
+        return comment;
     }
 
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setComment(String comment) {
+        this.comment = comment;
     }
 
-    public Date getDateUpdated() {
-        return dateUpdated;
+    public Date getDate_created() {
+        return date_created;
     }
 
-    public void setDateUpdated(Date dateUpdated) {
-        this.dateUpdated = dateUpdated;
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public Date getDate_updated() {
+        return date_updated;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy == null ? null : createdBy.trim();
+    public void setDate_updated(Date date_updated) {
+        this.date_updated = date_updated;
+    }
+
+    public String getCreated_by() {
+        return created_by;
+    }
+
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
     }
 
     public Integer getPriority() {
@@ -104,15 +108,23 @@ public class SystemUser {
     }
 
     public void setProtocol(String protocol) {
-        this.protocol = protocol == null ? null : protocol.trim();
+        this.protocol = protocol;
     }
 
-    public Boolean getAutoPush() {
-        return autoPush;
+    public Boolean getAuto_push() {
+        return auto_push;
     }
 
-    public void setAutoPush(Boolean autoPush) {
-        this.autoPush = autoPush;
+    public void setAuto_push(Boolean auto_push) {
+        this.auto_push = auto_push;
+    }
+
+    public String getSudo() {
+        return sudo;
+    }
+
+    public void setSudo(String sudo) {
+        this.sudo = sudo;
     }
 
     public String getShell() {
@@ -120,6 +132,14 @@ public class SystemUser {
     }
 
     public void setShell(String shell) {
-        this.shell = shell == null ? null : shell.trim();
+        this.shell = shell;
+    }
+
+    public String[] getCluster() {
+        return cluster;
+    }
+
+    public void setCluster(String[] cluster) {
+        this.cluster = cluster;
     }
 }

@@ -19,9 +19,15 @@ public class AssetsCluster {
 
     private String operator;
 
-    private String createdBy;
+    private String intranet;
 
-    private String adminUserId;
+    private String extranet;
+
+    private String comment;
+
+    private String created_by;
+
+    private String admin_user;
 
     private String[] assets;
 
@@ -30,7 +36,7 @@ public class AssetsCluster {
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
     public String getName() {
@@ -38,7 +44,7 @@ public class AssetsCluster {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getBandwidth() {
@@ -46,7 +52,7 @@ public class AssetsCluster {
     }
 
     public void setBandwidth(String bandwidth) {
-        this.bandwidth = bandwidth == null ? null : bandwidth.trim();
+        this.bandwidth = bandwidth;
     }
 
     public String getContact() {
@@ -54,7 +60,7 @@ public class AssetsCluster {
     }
 
     public void setContact(String contact) {
-        this.contact = contact == null ? null : contact.trim();
+        this.contact = contact;
     }
 
     public String getPhone() {
@@ -62,7 +68,7 @@ public class AssetsCluster {
     }
 
     public void setPhone(String phone) {
-        this.phone = phone == null ? null : phone.trim();
+        this.phone = phone;
     }
 
     public String getAddress() {
@@ -70,7 +76,7 @@ public class AssetsCluster {
     }
 
     public void setAddress(String address) {
-        this.address = address == null ? null : address.trim();
+        this.address = address;
     }
 
     public Date getDateCreated() {
@@ -86,23 +92,47 @@ public class AssetsCluster {
     }
 
     public void setOperator(String operator) {
-        this.operator = operator == null ? null : operator.trim();
+        this.operator = operator;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public String getIntranet() {
+        return intranet;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy == null ? null : createdBy.trim();
+    public void setIntranet(String intranet) {
+        this.intranet = intranet;
     }
 
-    public String getAdminUserId() {
-        return adminUserId;
+    public String getExtranet() {
+        return extranet;
     }
 
-    public void setAdminUserId(String adminUserId) {
-        this.adminUserId = adminUserId == null ? null : adminUserId.trim();
+    public void setExtranet(String extranet) {
+        this.extranet = extranet;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String getCreated_by() {
+        return created_by;
+    }
+
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
+    }
+
+    public String getAdmin_user() {
+        return admin_user;
+    }
+
+    public void setAdmin_user(String admin_user) {
+        this.admin_user = admin_user;
     }
 
     public String[] getAssets() {

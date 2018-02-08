@@ -5,15 +5,15 @@ import java.util.Date;
 public class Usergroup {
     private String id;
 
-    private Boolean isDiscard;
+    private Boolean is_discard;
 
-    private Date discardTime;
+    private Date discard_time;
 
     private String name;
 
-    private Date dateCreated;
+    private Date date_created;
 
-    private String createdBy;
+    private String created_by;
 
     private String comment;
 
@@ -22,23 +22,23 @@ public class Usergroup {
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
-    public Boolean getIsDiscard() {
-        return isDiscard;
+    public Boolean getIs_discard() {
+        return is_discard;
     }
 
-    public void setIsDiscard(Boolean isDiscard) {
-        this.isDiscard = isDiscard;
+    public void setIs_discard(Boolean is_discard) {
+        this.is_discard = is_discard;
     }
 
-    public Date getDiscardTime() {
-        return discardTime;
+    public Date getDiscard_time() {
+        return discard_time;
     }
 
-    public void setDiscardTime(Date discardTime) {
-        this.discardTime = discardTime;
+    public void setDiscard_time(Date discard_time) {
+        this.discard_time = discard_time;
     }
 
     public String getName() {
@@ -46,23 +46,23 @@ public class Usergroup {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    public Date getDate_created() {
+        return date_created;
     }
 
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public String getCreated_by() {
+        return created_by;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy == null ? null : createdBy.trim();
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
     }
 
     public String getComment() {
@@ -70,6 +70,6 @@ public class Usergroup {
     }
 
     public void setComment(String comment) {
-        this.comment = comment == null ? null : comment.trim();
+        this.comment = comment;
     }
 }

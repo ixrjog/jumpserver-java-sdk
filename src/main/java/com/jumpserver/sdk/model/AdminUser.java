@@ -9,38 +9,36 @@ public class AdminUser {
 
     private String username;
 
-    private String password;
+    private String _password;
 
-    private Date dateCreated;
+    private Date date_created;
 
-    private Date dateUpdated;
+    private Date date_updated;
 
-    private String createdBy;
+    private String created_by;
+
+    private String _private_key;
+
+    private String _public_key;
 
     private Boolean become;
 
-    private String becomeMethod;
+    private String become_method;
 
-    private String becomeUser;
+    private String become_user;
 
-    private String becomePass;
+    private String _become_pass;
+
+    private String comment;
 
     private String[] clusters;
-
-    public String[] getClusters() {
-        return clusters;
-    }
-
-    public void setClusters(String[] clusters) {
-        this.clusters = clusters;
-    }
 
     public String getId() {
         return id;
     }
 
     public void setId(String id) {
-        this.id = id == null ? null : id.trim();
+        this.id = id;
     }
 
     public String getName() {
@@ -48,7 +46,7 @@ public class AdminUser {
     }
 
     public void setName(String name) {
-        this.name = name == null ? null : name.trim();
+        this.name = name;
     }
 
     public String getUsername() {
@@ -56,39 +54,55 @@ public class AdminUser {
     }
 
     public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+        this.username = username;
     }
 
-    public String getPassword() {
-        return password;
+    public String get_password() {
+        return _password;
     }
 
-    public void setPassword(String password) {
-        this.password = password == null ? null : password.trim();
+    public void set_password(String _password) {
+        this._password = _password;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    public Date getDate_created() {
+        return date_created;
     }
 
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
     }
 
-    public Date getDateUpdated() {
-        return dateUpdated;
+    public Date getDate_updated() {
+        return date_updated;
     }
 
-    public void setDateUpdated(Date dateUpdated) {
-        this.dateUpdated = dateUpdated;
+    public void setDate_updated(Date date_updated) {
+        this.date_updated = date_updated;
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public String getCreated_by() {
+        return created_by;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy == null ? null : createdBy.trim();
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
+    }
+
+    public String get_private_key() {
+        return _private_key;
+    }
+
+    public void set_private_key(String _private_key) {
+        this._private_key = _private_key;
+    }
+
+    public String get_public_key() {
+        return _public_key;
+    }
+
+    public void set_public_key(String _public_key) {
+        this._public_key = _public_key;
     }
 
     public Boolean getBecome() {
@@ -99,27 +113,43 @@ public class AdminUser {
         this.become = become;
     }
 
-    public String getBecomeMethod() {
-        return becomeMethod;
+    public String getBecome_method() {
+        return become_method;
     }
 
-    public void setBecomeMethod(String becomeMethod) {
-        this.becomeMethod = becomeMethod == null ? null : becomeMethod.trim();
+    public void setBecome_method(String become_method) {
+        this.become_method = become_method;
     }
 
-    public String getBecomeUser() {
-        return becomeUser;
+    public String getBecome_user() {
+        return become_user;
     }
 
-    public void setBecomeUser(String becomeUser) {
-        this.becomeUser = becomeUser == null ? null : becomeUser.trim();
+    public void setBecome_user(String become_user) {
+        this.become_user = become_user;
     }
 
-    public String getBecomePass() {
-        return becomePass;
+    public String get_become_pass() {
+        return _become_pass;
     }
 
-    public void setBecomePass(String becomePass) {
-        this.becomePass = becomePass == null ? null : becomePass.trim();
+    public void set_become_pass(String _become_pass) {
+        this._become_pass = _become_pass;
+    }
+
+    public String getComment() {
+        return comment;
+    }
+
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+
+    public String[] getClusters() {
+        return clusters;
+    }
+
+    public void setClusters(String[] clusters) {
+        this.clusters = clusters;
     }
 }

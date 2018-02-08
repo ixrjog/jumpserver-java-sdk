@@ -7,13 +7,14 @@ public class Assetgroup {
 
     private String name;
 
-    private String createdBy;
+    private String created_by;
 
-    private Date dateCreated;
+    private Date date_created;
 
     private String comment;
 
     private String[] assets;
+
 
     public String getId() {
         return id;
@@ -31,20 +32,20 @@ public class Assetgroup {
         this.name = name == null ? null : name.trim();
     }
 
-    public String getCreatedBy() {
-        return createdBy;
+    public String getCreated_by() {
+        return created_by;
     }
 
-    public void setCreatedBy(String createdBy) {
-        this.createdBy = createdBy == null ? null : createdBy.trim();
+    public void setCreated_by(String created_by) {
+        this.created_by = created_by;
     }
 
-    public Date getDateCreated() {
-        return dateCreated;
+    public Date getDate_created() {
+        return date_created;
     }
 
-    public void setDateCreated(Date dateCreated) {
-        this.dateCreated = dateCreated;
+    public void setDate_created(Date date_created) {
+        this.date_created = date_created;
     }
 
     public String getComment() {
