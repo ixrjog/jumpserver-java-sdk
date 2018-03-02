@@ -29,7 +29,7 @@ public class SystemUser {
 
     private String shell;
 
-    private String[] cluster;
+    private String[] nodes;
 
     public String getId() {
         return id;
@@ -135,11 +135,11 @@ public class SystemUser {
         this.shell = shell;
     }
 
-    public String[] getCluster() {
-        return cluster;
+    public String[] getNodes() {
+        return nodes;
     }
 
-    public void setCluster(String[] cluster) {
-        this.cluster = cluster;
+    public void setNodes(String[] nodes) {
+        this.nodes = nodes;
     }
 }

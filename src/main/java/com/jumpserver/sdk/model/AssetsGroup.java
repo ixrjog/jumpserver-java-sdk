@@ -2,7 +2,7 @@ package com.jumpserver.sdk.model;
 
 import java.util.Date;
 
-public class Assetgroup {
+public class AssetsGroup {
     private String id;
 
     private String name;

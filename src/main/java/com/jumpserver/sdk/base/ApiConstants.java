@@ -6,28 +6,25 @@ public class ApiConstants{
 
     public static final  String USERS = "/api/users/v1/users/";
     public static final  String USERGROUPS = "/api/users/v1/groups/";
-    public static final  String USER_PASSWORD_RESET_START = "/api/users/v1/users/";
-    public static final  String USER_PASSWORD_RESET_END = "/password/";
+    public static final  String USER_PASSWORD_RESET = "/api/users/v1/users/{id}/password/";
 
     public static final  String ASSETS = "/api/assets/v1/assets/";
-    public static final  String ASSETGROUPS = "/api/assets/v1/groups/";
-    public static final  String CLUSTERS = "/api/assets/v1/clusters/";
+    public static final  String NODES = "/api/assets/v1/nodes/";
+    public static final  String NODES_CHILDREN = "/api/assets/v1/nodes/{id}/children/";
+    public static final  String NODES_ASSETS_ADD = "/api/assets/v1/nodes/{id}/assets/add/";
+    public static final  String NODES_ASSETS_REMOVE = "/api/assets/v1/nodes/{id}/assets/remove/";
     public static final  String LABLES = "/api/assets/v1/labels/";
-
     public static final  String ADMIN_USERS = "/api/assets/v1/admin-user/";
-    public static final  String ADMIN_USERS_CLUSTER_START = "/api/assets/v1/admin-user/";
-    public static final  String ADMIN_USERS_CLUSTER_END = "/clusters/";
-
-
+    public static final  String ADMIN_USERS_CLUSTER = "/api/assets/v1/admin-user/{id}/clusters/";
     public static final  String SYSTEM_USERS = "/api/assets/v1/system-user/";
-
     public static final  String ASSET_PERMISSIONS = "/api/perms/v1/asset-permissions/";
 
     public static final  String LUNA_TOKEN = "/api/users/v1/connection-token/";
     public static final  String LUNA_TOKEN_VALIDATE = "/api/users/v1/connection-token/?token=";
-    public static final  String LUNA_CONNECT = "/luna/term/";
+    public static final  String LUNA_LINUX_CONNECT = "/luna/term/";
+    public static final  String LUNA_WINDOWS_CONNECT = "/luna/rdp/";
 
-
+    public static final  String SYSTEM_USERS_PUSH = "/api/assets/v1/system-user/{id}/push/";
 
 
 }

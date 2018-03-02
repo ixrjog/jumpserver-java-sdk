@@ -107,7 +107,7 @@ public class JmsUserServiceTest {
         String token = jmsUsersService.getToken();
         System.out.println(token);
         User user = new User();
-        user.setId("9e39700c-6a7b-4f7d-9c8f-2ed52e1b8faf");
+        user.setId("f29eaa54-c861-4f62-8764-4e3197b2a242");
         user.setPassword("aaa");
         Map<String, String> map = jmsUsersService.userPasswordReset(user);
         System.out.println(map.toString());

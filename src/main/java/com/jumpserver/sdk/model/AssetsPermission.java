@@ -2,7 +2,7 @@ package com.jumpserver.sdk.model;
 
 import java.util.Date;
 
-public class Assetpermission {
+public class AssetsPermission {
     private String id;
 
     private String name;
@@ -17,19 +17,16 @@ public class Assetpermission {
 
     private String comment;
 
-    private String[] user_groups;
+    private String user_group;
 
     private String[] users;
 
-    private String[] asset_groups;
+    private String node;
 
     private String[] assets;
 
-    private String[] system_users;
+    private String system_user;
 
-    public String[] getUser_groups() {
-        return user_groups;
-    }
 
     public String getId() {
         return id;
@@ -87,9 +84,6 @@ public class Assetpermission {
         this.comment = comment;
     }
 
-    public void setUser_groups(String[] user_groups) {
-        this.user_groups = user_groups;
-    }
 
     public String[] getUsers() {
         return users;
@@ -99,13 +93,6 @@ public class Assetpermission {
         this.users = users;
     }
 
-    public String[] getAsset_groups() {
-        return asset_groups;
-    }
-
-    public void setAsset_groups(String[] asset_groups) {
-        this.asset_groups = asset_groups;
-    }
 
     public String[] getAssets() {
         return assets;
@@ -115,11 +102,27 @@ public class Assetpermission {
         this.assets = assets;
     }
 
-    public String[] getSystem_users() {
-        return system_users;
+    public String getUser_group() {
+        return user_group;
     }
 
-    public void setSystem_users(String[] system_users) {
-        this.system_users = system_users;
+    public void setUser_group(String user_group) {
+        this.user_group = user_group;
+    }
+
+    public String getNode() {
+        return node;
+    }
+
+    public void setNode(String node) {
+        this.node = node;
+    }
+
+    public String getSystem_user() {
+        return system_user;
+    }
+
+    public void setSystem_user(String system_user) {
+        this.system_user = system_user;
     }
 }

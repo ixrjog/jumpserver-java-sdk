@@ -4,8 +4,6 @@ import com.jumpserver.sdk.base.ApiConstants;
 import com.jumpserver.sdk.base.ApiType;
 import com.jumpserver.sdk.base.JmsException;
 import com.jumpserver.sdk.model.Luna;
-import com.jumpserver.sdk.model.User;
-import com.jumpserver.sdk.model.Usergroup;
 import com.jumpserver.sdk.request.JmsRequest;
 
 import java.util.HashMap;
@@ -33,10 +31,22 @@ public class JmsLunaService extends JmsBaseService {
         }
     }
 
-    public Map<String, String> connectLuna(String token) {
+    public Map<String, String> connectLunaLinux(String token) {
         try {
             Map<String, String> map = new HashMap<>();
-            map.put("resultStr",this.URL + ApiConstants.LUNA_CONNECT + token);
+            map.put("resultStr",this.URL + ApiConstants.LUNA_LINUX_CONNECT + token);
+            map.put("code","200");
+            return map;
+        } catch (Exception e) {
+            e.printStackTrace();
+            throw new JmsException(e.getMessage());
+        }
+    }
+
+    public Map<String, String> connectLunaWindows(String token) {
+        try {
+            Map<String, String> map = new HashMap<>();
+            map.put("resultStr",this.URL + ApiConstants.LUNA_WINDOWS_CONNECT + token);
             map.put("code","200");
             return map;
         } catch (Exception e) {

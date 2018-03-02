@@ -37,7 +37,7 @@ public class JmsLunaServiceTest {
     }
     @Test
     public void t13() {
-        Map<String, String> lunaToken = jmsLunaService.connectLuna("9e05eb85-2e8b-420d-8fc4-cee039ffa047");
+        Map<String, String> lunaToken = jmsLunaService.connectLunaLinux("9e05eb85-2e8b-420d-8fc4-cee039ffa047");
         System.out.println(lunaToken);
 
     }

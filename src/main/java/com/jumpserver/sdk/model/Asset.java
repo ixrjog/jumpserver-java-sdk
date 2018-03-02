@@ -73,7 +73,7 @@ public class Asset {
 
     private String hardware_info;
 
-    private String[] groups;
+    private String[] nodes;
 
     private String[] labels;
 
@@ -357,12 +357,12 @@ public class Asset {
         this.hardware_info = hardware_info;
     }
 
-    public String[] getGroups() {
-        return groups;
+    public String[] getNodes() {
+        return nodes;
     }
 
-    public void setGroups(String[] groups) {
-        this.groups = groups;
+    public void setNodes(String[] nodes) {
+        this.nodes = nodes;
     }
 
     public String[] getLabels() {

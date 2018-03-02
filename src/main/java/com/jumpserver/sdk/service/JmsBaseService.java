@@ -51,13 +51,14 @@ public class JmsBaseService {
         }
     }
 
-    public Map<String, String> commonUpdate(Object object, String apiUrlStart, String apiUrlEnd, String id) {
+    public Map<String, String> updateX(Object object, String apiUrl, String id) {
         try {
             String jsonStr = JSON.toJSONString(object);
             JSONObject jsonObject = JSON.parseObject(jsonStr);
             jsonObject.remove("id");
             jsonStr = jsonObject.toString();
-            Map<String, String> map = JmsRequest.getRequest(this.URL + apiUrlStart + id + apiUrlEnd, jsonStr, ApiType.API_PATCH, this.TOKEN);
+            apiUrl = apiUrl.replaceAll("\\{" + "id" + "\\}", id);
+            Map<String, String> map = JmsRequest.getRequest(this.URL + apiUrl, jsonStr, ApiType.API_PATCH, this.TOKEN);
             return map;
         } catch (Exception e) {
             e.printStackTrace();
@@ -97,10 +98,9 @@ public class JmsBaseService {
         try {
             Map<String, String> map = new HashMap<>();
             if (StringUtils.isNotBlank(id)) {
-                map = JmsRequest.getRequest(this.URL + apiUrl + id + "/", null, ApiType.API_GET, this.TOKEN);
-            } else {
-                map = JmsRequest.getRequest(this.URL + apiUrl, null, ApiType.API_GET, this.TOKEN);
+                apiUrl = apiUrl.replaceAll("\\{" + "id" + "\\}", id);
             }
+            map = JmsRequest.getRequest(this.URL + apiUrl, null, ApiType.API_GET, this.TOKEN);
             return map;
         } catch (Exception e) {
             e.printStackTrace();

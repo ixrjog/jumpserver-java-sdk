@@ -1,5 +1,7 @@
 package jms;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONObject;
 import com.jumpserver.sdk.model.*;
 import com.jumpserver.sdk.service.JmsAssetsService;
 import org.junit.Before;
@@ -46,61 +48,96 @@ public class JmsAssetsServiceTest {
         System.out.println(map);
     }
 
-    //资产组
+    //资产树
     @Test
-    public void zz1() {
-        Assetgroup assetgroup = new Assetgroup();
-        assetgroup.setName("SDK-Name");
-        Map<String, String> map = jmsAssetsService.addAssetGroups(assetgroup);
-        System.out.println(map);
-    }
-
-    @Test
-    public void zz2() {
-        Assetgroup assetgroup = new Assetgroup();
-        assetgroup.setId("99028af4-8739-494b-8108-e80b6210bad4");
-        assetgroup.setName("SDK-Name-Modify");
-        Map<String, String> map = jmsAssetsService.updateAssetGroups(assetgroup);
-        System.out.println(map);
-    }
-
-
-
-    //集群
-    @Test
-    public void t11() {
-        JmsAssetsService  JmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
-        String token = JmsAssetsService.getToken();
+    public void node1() {
+        JmsAssetsService  jmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
+        String token = jmsAssetsService.getToken();
         System.out.println(token);
-        AssetsCluster assetsCluster = new AssetsCluster();
-        assetsCluster.setName("SDK资产集群");
-        assetsCluster.setAssets(new String[]{});
-        Map<String, String> map = JmsAssetsService.addAssetCluster(assetsCluster);
+        AssetsNodes assetsNodes = new AssetsNodes();
+        assetsNodes.setValue("java");
+        Map<String, String> map = jmsAssetsService.addAssetsNodes(assetsNodes);
         System.out.println(map.toString());
     }
 
     @Test
-    public void t12() {
-        JmsAssetsService  JmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
-        String token = JmsAssetsService.getToken();
+    public void node2() {
+        JmsAssetsService  jmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
+        String token = jmsAssetsService.getToken();
         System.out.println(token);
-        AssetsCluster assetsCluster = new AssetsCluster();
-        assetsCluster.setName("SDK资产集群-modify");
-        assetsCluster.setId("7533698c-9754-4980-a887-8d90248685cf");
-        Map<String, String> map = JmsAssetsService.updateAssetCluster(assetsCluster);
+        AssetsNodes assetsNodes = new AssetsNodes();
+        assetsNodes.setValue("java-modify");
+        assetsNodes.setId("d211fcdd-7f59-4b9f-815f-f2b2e4ec98d4");
+        Map<String, String> map = jmsAssetsService.updateAssetsNodes(assetsNodes);
         System.out.println(map.toString());
     }
 
     @Test
-    public void t13() {
-        JmsAssetsService  JmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
-        String token = JmsAssetsService.getToken();
+    public void node3() {
+        JmsAssetsService  jmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
+        String token = jmsAssetsService.getToken();
         System.out.println(token);
-        AssetsCluster assetsCluster = new AssetsCluster();
-        assetsCluster.setId("7533698c-9754-4980-a887-8d90248685cf");
-        Map<String, String> map = JmsAssetsService.deleteAssetCluster(assetsCluster);
+        Map<String, String> map = jmsAssetsService.queryAllAssetsNodes();
         System.out.println(map.toString());
     }
+
+    @Test
+    public void node4() {
+        JmsAssetsService  jmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
+        String token = jmsAssetsService.getToken();
+        System.out.println(token);
+        AssetsNodes assetsNodes = new AssetsNodes();
+        assetsNodes.setId("6d9bbc623ea344e1abdf3f75adce9d3f");
+        Map<String, String> map = jmsAssetsService.deleteAssetsNodes(assetsNodes);
+        System.out.println(map.toString());
+    }
+
+    @Test
+    public void nodeChildren() {
+        JmsAssetsService  jmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
+        String token = jmsAssetsService.getToken();
+        System.out.println(token);
+        Map<String, String> map = jmsAssetsService.queryAssetsNodesChildren("d211fcdd-7f59-4b9f-815f-f2b2e4ec98d4");
+        System.out.println(map.toString());
+    }
+
+    @Test
+    public void nodeChildren2() {
+        JmsAssetsService  jmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
+        String token = jmsAssetsService.getToken();
+        System.out.println(token);
+        AssetsNodes assetsNodes = new AssetsNodes();
+        assetsNodes.setValue("children");
+        Map<String, String> map = jmsAssetsService.addAssetsNodesChildren("d211fcdd-7f59-4b9f-815f-f2b2e4ec98d4",assetsNodes);
+        System.out.println(map.toString());
+    }
+
+    @Test
+    public void nodeAseets1() {
+        JmsAssetsService  jmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
+        String token = jmsAssetsService.getToken();
+        System.out.println(token);
+        String [] ass = {"47cc75f8-2218-4ac3-9575-686f69989ce5"};
+        AssetsNodes assetsNodes = new AssetsNodes();
+        assetsNodes.setAssets(ass);
+        assetsNodes.setValue("addAssetsNodesAsset");
+        Map<String, String> map = jmsAssetsService.addAssetsNodesAsset(assetsNodes,"894daf04d7cc47928c7ad3d8ae82bcd0");
+        System.out.println(map.toString());
+    }
+
+    @Test
+    public void nodeAseets2() {
+        JmsAssetsService  jmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
+        String token = jmsAssetsService.getToken();
+        System.out.println(token);
+        String [] ass = {"38db393c747f4237838cecd944975362"};
+        AssetsNodes assetsNodes = new AssetsNodes();
+        assetsNodes.setAssets(ass);
+        Map<String, String> map = jmsAssetsService.removeAssetsNodesAsset(assetsNodes,"3e62f4e4-4902-4754-8916-c3b3b0503c19");
+        System.out.println(map.toString());
+    }
+
+
 
     //管理用户
     @Test
@@ -170,6 +207,11 @@ public class JmsAssetsServiceTest {
         assetsLabel.setValue("SDK-Name-Value");
         assetsLabel.setId("43ce643d-df31-4267-aadb-b9db3afec68b");
         Map<String, String> map = jmsAssetsService.updateAssetsLabel(assetsLabel);
+        System.out.println(map);
+    }
+    @Test
+    public void systemUserPush() {
+        Map<String, String> map = jmsAssetsService.systemUserPush("43ce643d-df31-4267-aadb-b9db3afec68b");
         System.out.println(map);
     }
 

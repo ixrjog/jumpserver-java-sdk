@@ -1,6 +1,6 @@
 package jms;
 
-import com.jumpserver.sdk.model.Assetpermission;
+import com.jumpserver.sdk.model.AssetsPermission;
 import com.jumpserver.sdk.service.JmsPermissionService;
 import org.junit.Before;
 import org.junit.Test;
@@ -20,21 +20,22 @@ public class JmsAssetsPerssionServiceTest {
 
     @Test
     public void t11() {
-        Assetpermission assetpermission = new Assetpermission();
-        assetpermission.setName("SDK授权规则");
-        assetpermission.setSystem_users(new String[]{"43ce643d-df31-4267-aadb-b9db3afec68b"});
-        assetpermission.setUser_groups(new String[]{"a9eb1158-ee23-4b62-815f-91f342bc66f3"});
-        assetpermission.setAsset_groups(new String[]{"99028af4-8739-494b-8108-e80b6210bad4"});
-        Map<String, String> map = jmsPermissionService.addAssetpermission(assetpermission);
+        AssetsPermission assetsPermission = new AssetsPermission();
+        assetsPermission.setName("SDK授权规则");
+        assetsPermission.setSystem_user("43ce643d-df31-4267-aadb-b9db3afec68b");
+        assetsPermission.setUser_group("a9eb1158-ee23-4b62-815f-91f342bc66f3");
+//        assetsPermission.setAsset_groups(new String[]{"99028af4-8739-494b-8108-e80b6210bad4"});
+        assetsPermission.setNode("3e62f4e4-4902-4754-8916-c3b3b0503c19");
+        Map<String, String> map = jmsPermissionService.addAssetpermission(assetsPermission);
         System.out.println(map);
     }
 
     @Test
     public void t12() {
-        Assetpermission assetpermission = new Assetpermission();
-        assetpermission.setId("5becc8d4-fbfd-4ad0-b2f5-07c806b9359b");
-        assetpermission.setName("SDK授权规则-modify");
-        Map<String, String> map = jmsPermissionService.updateAssetpermission(assetpermission);
+        AssetsPermission assetsPermission = new AssetsPermission();
+        assetsPermission.setId("5becc8d4-fbfd-4ad0-b2f5-07c806b9359b");
+        assetsPermission.setName("SDK授权规则-modify");
+        Map<String, String> map = jmsPermissionService.updateAssetpermission(assetsPermission);
         System.out.println(map);
     }
 

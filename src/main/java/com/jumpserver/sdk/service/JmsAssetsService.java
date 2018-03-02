@@ -13,53 +13,55 @@ public class JmsAssetsService extends JmsBaseService {
 
     //资产
     public Map<String, String> addAsset(Asset asset) {
-        return super.add(asset,ApiConstants.ASSETS);
+        return super.add(asset, ApiConstants.ASSETS);
     }
 
     public Map<String, String> updateAsset(Asset asset) {
-        return super.update(asset,ApiConstants.ASSETS,asset.getId());
+        return super.update(asset, ApiConstants.ASSETS, asset.getId());
     }
 
     public Map<String, String> deleteAsset(Asset asset) {
-        return super.delete(asset,ApiConstants.ASSETS,asset.getId());
+        return super.delete(asset, ApiConstants.ASSETS, asset.getId());
     }
 
     public Map<String, String> queryAsset(String id) {
         return super.query(id, ApiConstants.ASSETS);
     }
 
-    //资产组
-    public Map<String, String> addAssetGroups(Assetgroup assetgroup) {
-        return super.add(assetgroup, ApiConstants.ASSETGROUPS);
+    //资产树
+    public Map<String, String> addAssetsNodes(AssetsNodes assetsNodes) {
+        return super.add(assetsNodes, ApiConstants.NODES);
     }
 
-    public Map<String, String> updateAssetGroups(Assetgroup assetgroup) {
-        return  super.update(assetgroup,ApiConstants.ASSETGROUPS,assetgroup.getId());
+    public Map<String, String> updateAssetsNodes(AssetsNodes assetsNodes) {
+        return super.update(assetsNodes, ApiConstants.NODES, assetsNodes.getId());
     }
 
-    public Map<String, String> deleteAssetGroups(Assetgroup assetgroup) {
-        return  super.delete(assetgroup,ApiConstants.ASSETGROUPS,assetgroup.getId());
+    public Map<String, String> deleteAssetsNodes(AssetsNodes assetsNodes) {
+        return super.delete(assetsNodes, ApiConstants.NODES, assetsNodes.getId());
     }
 
-    public Map<String, String> queryAssetGroups(String id) {
-        return super.query(id, ApiConstants.ASSETGROUPS);
+    public Map<String, String> queryAllAssetsNodes() {
+        return super.query(null, ApiConstants.NODES);
     }
 
-    // 集群
-    public Map<String, String> addAssetCluster(AssetsCluster assetsCluster) {
-        return super.add(assetsCluster, ApiConstants.CLUSTERS);
+    //资产树下级
+    public Map<String, String> addAssetsNodesChildren(String parentId, AssetsNodes assetsNodes) {
+        String url = ApiConstants.NODES_CHILDREN.replaceAll("\\{" + "id" + "\\}", parentId);
+        return super.add(assetsNodes, url);
     }
 
-    public Map<String, String> updateAssetCluster(AssetsCluster assetsCluster) {
-        return super.update(assetsCluster, ApiConstants.CLUSTERS, assetsCluster.getId());
+    public Map<String, String> queryAssetsNodesChildren(String parentId) {
+        return super.query(parentId, ApiConstants.NODES_CHILDREN);
     }
 
-    public Map<String, String> deleteAssetCluster(AssetsCluster assetsCluster) {
-        return super.delete(assetsCluster, ApiConstants.CLUSTERS, assetsCluster.getId());
+    //资产树资产
+    public Map<String, String> addAssetsNodesAsset(AssetsNodes assetsNodes, String nodeId) {
+        return super.updateX(assetsNodes, ApiConstants.NODES_ASSETS_ADD, nodeId);
     }
 
-    public Map<String, String> queryAssetCluster(String id) {
-        return super.query(id, ApiConstants.CLUSTERS);
+    public Map<String, String> removeAssetsNodesAsset(AssetsNodes assetsNodes, String nodeId) {
+        return super.updateX(assetsNodes, ApiConstants.NODES_ASSETS_REMOVE, nodeId);
     }
 
     //管理用户
@@ -72,7 +74,7 @@ public class JmsAssetsService extends JmsBaseService {
     }
 
     public Map<String, String> updateAdminUserCluster(AdminUser adminUser) {
-        return super.commonUpdate(adminUser, ApiConstants.ADMIN_USERS_CLUSTER_START,ApiConstants.ADMIN_USERS_CLUSTER_END, adminUser.getId());
+        return super.updateX(adminUser, ApiConstants.ADMIN_USERS_CLUSTER, adminUser.getId());
     }
 
     public Map<String, String> deleteAdminUser(AdminUser adminUser) {
@@ -115,6 +117,11 @@ public class JmsAssetsService extends JmsBaseService {
 
     public Map<String, String> queryAssetsLabel(String id) {
         return super.query(id, ApiConstants.LABLES);
+    }
+
+
+    public Map<String, String> systemUserPush(String id) {
+        return super.query(id, ApiConstants.SYSTEM_USERS_PUSH);
     }
 
 }

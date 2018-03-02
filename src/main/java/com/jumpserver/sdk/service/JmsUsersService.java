@@ -45,7 +45,7 @@ public class JmsUsersService extends JmsBaseService {
     }
 
     public Map<String, String> userPasswordReset(User user) {
-        return super.commonUpdate(user, ApiConstants.USER_PASSWORD_RESET_START, ApiConstants.USER_PASSWORD_RESET_END, user.getId());
+        return super.updateX(user, ApiConstants.USER_PASSWORD_RESET, user.getId());
     }
 
 }
