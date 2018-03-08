@@ -3,15 +3,23 @@ package jms;
 import com.jumpserver.sdk.model.User;
 import com.jumpserver.sdk.model.Usergroup;
 import com.jumpserver.sdk.service.JmsUsersService;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.Map;
 
 public class JmsUserServiceTest {
 
+
+    private   JmsUsersService jmsUsersService;
+    @Before
+    public void before() {
+         jmsUsersService = new JmsUsersService("http://ccoe-dev2.cmbchina.io", "admin", "admin");
+    }
+
     @Test
     public void testGetToken() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
+        JmsUsersService jmsUsersService = new JmsUsersService("http://ccoe-dev2.cmbchina.io", "admin", "admin");
         String token = jmsUsersService.getToken();
         System.out.println(token);
     }
@@ -55,21 +63,18 @@ public class JmsUserServiceTest {
 
     @Test
     public void t15() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
+        JmsUsersService jmsUsersService = new JmsUsersService("http://ccoe-dev2.cmbchina.io", "admin", "admin");
         String token = jmsUsersService.getToken();
         System.out.println(token);
 //        User user = new User();
 //        user.setId("9e39700c-6a7b-4f7d-9c8f-2ed52e1b8faf");
 //        Map<String, String> map = jmsUsersService.queryUser("9e39700c-6a7b-4f7d-9c8f-2ed52e1b8faf");
-        Map<String, String> map = jmsUsersService.queryUser(null);
+        Map<String, String> map = jmsUsersService.queryUser("4947bb2b-ccc6-4d53-a3ac-21083c4b022a");
         System.out.println(map.toString());
     }
 
     @Test
     public void t21() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
-        String token = jmsUsersService.getToken();
-        System.out.println(token);
         Usergroup usergroup  =  new Usergroup();
         usergroup.setName("sdk用户组");
         Map<String, String> map = jmsUsersService.addUserGroup(usergroup);

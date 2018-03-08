@@ -121,7 +121,8 @@ public class JmsAssetsService extends JmsBaseService {
 
 
     public Map<String, String> systemUserPush(String id) {
-        return super.query(id, ApiConstants.SYSTEM_USERS_PUSH);
+        String url = ApiConstants.SYSTEM_USERS_PUSH.replaceAll("\\{" + "id" + "\\}", id);
+        return super.query("",url);
     }
 
 }

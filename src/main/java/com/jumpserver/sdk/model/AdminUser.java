@@ -1,5 +1,7 @@
 package com.jumpserver.sdk.model;
 
+import com.alibaba.fastjson.annotation.JSONField;
+
 import java.util.Date;
 
 public class AdminUser {
@@ -57,11 +59,11 @@ public class AdminUser {
     public void setUsername(String username) {
         this.username = username;
     }
-
+    @JSONField(name = "_password")
     public String get_password() {
         return _password;
     }
-
+    @JSONField(name = "_password")
     public void set_password(String _password) {
         this._password = _password;
     }
@@ -89,19 +91,19 @@ public class AdminUser {
     public void setCreated_by(String created_by) {
         this.created_by = created_by;
     }
-
+    @JSONField(name = "_private_key")
     public String get_private_key() {
         return _private_key;
     }
-
+    @JSONField(name = "_private_key")
     public void set_private_key(String _private_key) {
         this._private_key = _private_key;
     }
-
+    @JSONField(name = "_public_key")
     public String get_public_key() {
         return _public_key;
     }
-
+    @JSONField(name = "_public_key")
     public void set_public_key(String _public_key) {
         this._public_key = _public_key;
     }
