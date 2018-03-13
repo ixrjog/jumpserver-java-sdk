@@ -11,11 +11,11 @@ public class SystemUser {
 
     private String username;
 
-    private String _password;
+    private String password;
 
-    private String _private_key;
+    private String private_key;
 
-    private String _public_key;
+    private String public_key;
 
     private String comment;
 
@@ -61,34 +61,28 @@ public class SystemUser {
         this.username = username;
     }
 
-    @JSONField(name = "_password")
-    public String get_password() {
-        return _password;
+    public String getPassword() {
+        return password;
     }
 
-    @JSONField(name = "_password")
-    public void set_password(String _password) {
-        this._password = _password;
+    public void setPassword(String password) {
+        this.password = password;
     }
 
-    @JSONField(name = "_private_key")
-    public String get_private_key() {
-        return _private_key;
+    public String getPrivate_key() {
+        return private_key;
     }
 
-    @JSONField(name = "_private_key")
-    public void set_private_key(String _private_key) {
-        this._private_key = _private_key;
+    public void setPrivate_key(String private_key) {
+        this.private_key = private_key;
     }
 
-    @JSONField(name = "_public_key")
-    public String get_public_key() {
-        return _public_key;
+    public String getPublic_key() {
+        return public_key;
     }
 
-    @JSONField(name = "_public_key")
-    public void set_public_key(String _public_key) {
-        this._public_key = _public_key;
+    public void setPublic_key(String public_key) {
+        this.public_key = public_key;
     }
 
     public String getComment() {

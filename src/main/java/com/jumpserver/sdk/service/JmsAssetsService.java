@@ -102,6 +102,15 @@ public class JmsAssetsService extends JmsBaseService {
         return super.query(id, ApiConstants.SYSTEM_USERS);
     }
 
+    public Map<String, String> querySystemUserAuthInfo(String id) {
+        String url = ApiConstants.SYSTEM_USERS_AUTHINFO.replaceAll("\\{" + "id" + "\\}",id);
+        return super.query(null,url);
+    }
+
+    public Map<String, String> updateSystemUserAuthInfo(SystemUser systemUser) {
+        return super.updateX(systemUser,ApiConstants.SYSTEM_USERS_AUTHINFO,systemUser.getId());
+    }
+
     //标签
     public Map<String, String> addAssetsLabel(AssetsLabel assetsLabel) {
         return super.add(assetsLabel, ApiConstants.LABLES);

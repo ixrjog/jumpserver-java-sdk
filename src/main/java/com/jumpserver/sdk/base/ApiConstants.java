@@ -17,12 +17,13 @@ public class ApiConstants{
     public static final  String ADMIN_USERS = "/api/assets/v1/admin-user/";
     public static final  String ADMIN_USERS_CLUSTER = "/api/assets/v1/admin-user/{id}/clusters/";
     public static final  String SYSTEM_USERS = "/api/assets/v1/system-user/";
+    public static final  String SYSTEM_USERS_AUTHINFO = "/api/assets/v1/system-user/{id}/auth-info/";
     public static final  String ASSET_PERMISSIONS = "/api/perms/v1/asset-permissions/";
 
     public static final  String LUNA_TOKEN = "/api/users/v1/connection-token/";
     public static final  String LUNA_TOKEN_VALIDATE = "/api/users/v1/connection-token/?token=";
-    public static final  String LUNA_LINUX_CONNECT = "/luna/term/";
-    public static final  String LUNA_WINDOWS_CONNECT = "/luna/rdp/";
+    public static final  String LUNA_LINUX_CONNECT = "/luna/connect?system=linux&token=";
+    public static final  String LUNA_WINDOWS_CONNECT = "/luna/connect?system=windows&token=";
 
     public static final  String SYSTEM_USERS_PUSH = "/api/assets/v1/system-user/{id}/push/";
 
