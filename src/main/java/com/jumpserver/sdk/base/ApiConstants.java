@@ -11,6 +11,7 @@ public class ApiConstants{
     public static final  String ASSETS = "/api/assets/v1/assets/";
     public static final  String NODES = "/api/assets/v1/nodes/";
     public static final  String NODES_CHILDREN = "/api/assets/v1/nodes/{id}/children/";
+    public static final  String NODES_CHILDREN_ADD = "/api/assets/v1/nodes/{id}/children/add/";
     public static final  String NODES_ASSETS_ADD = "/api/assets/v1/nodes/{id}/assets/add/";
     public static final  String NODES_ASSETS_REMOVE = "/api/assets/v1/nodes/{id}/assets/remove/";
     public static final  String LABLES = "/api/assets/v1/labels/";

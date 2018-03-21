@@ -113,6 +113,15 @@ public class JmsAssetsServiceTest {
     }
 
     @Test
+    public void nodeChildren3() {
+        JmsAssetsService  jmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
+        AssetsNodes assetsNodes = new AssetsNodes();
+        assetsNodes.setNodes(new String[]{"0e321c37-dd1a-446d-924b-773852f29cbf"});
+        Map<String, String> map = jmsAssetsService.updateAssetsNodesChildren("af034e7e-a74c-4b2a-b473-21208eb0a48d",assetsNodes);
+        System.out.println(map.toString());
+    }
+
+    @Test
     public void nodeAseets1() {
         JmsAssetsService  jmsAssetsService= new JmsAssetsService("http://localhost:8080", "admin", "admin");
         String token = jmsAssetsService.getToken();

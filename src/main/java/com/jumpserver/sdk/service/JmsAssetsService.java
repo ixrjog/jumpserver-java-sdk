@@ -55,6 +55,12 @@ public class JmsAssetsService extends JmsBaseService {
         return super.query(parentId, ApiConstants.NODES_CHILDREN);
     }
 
+    public Map<String, String> updateAssetsNodesChildren(String parentId, AssetsNodes assetsNodes) {
+        String url = ApiConstants.NODES_CHILDREN_ADD.replaceAll("\\{" + "id" + "\\}", parentId);
+        return super.updatePut(assetsNodes,url);
+    }
+
+
     //资产树资产
     public Map<String, String> addAssetsNodesAsset(AssetsNodes assetsNodes, String nodeId) {
         return super.updateX(assetsNodes, ApiConstants.NODES_ASSETS_ADD, nodeId);
@@ -103,12 +109,12 @@ public class JmsAssetsService extends JmsBaseService {
     }
 
     public Map<String, String> querySystemUserAuthInfo(String id) {
-        String url = ApiConstants.SYSTEM_USERS_AUTHINFO.replaceAll("\\{" + "id" + "\\}",id);
-        return super.query(null,url);
+        String url = ApiConstants.SYSTEM_USERS_AUTHINFO.replaceAll("\\{" + "id" + "\\}", id);
+        return super.query(null, url);
     }
 
     public Map<String, String> updateSystemUserAuthInfo(SystemUser systemUser) {
-        return super.updateX(systemUser,ApiConstants.SYSTEM_USERS_AUTHINFO,systemUser.getId());
+        return super.updateX(systemUser, ApiConstants.SYSTEM_USERS_AUTHINFO, systemUser.getId());
     }
 
     //标签
@@ -128,10 +134,9 @@ public class JmsAssetsService extends JmsBaseService {
         return super.query(id, ApiConstants.LABLES);
     }
 
-
     public Map<String, String> systemUserPush(String id) {
         String url = ApiConstants.SYSTEM_USERS_PUSH.replaceAll("\\{" + "id" + "\\}", id);
-        return super.query("",url);
+        return super.query("", url);
     }
 
 }

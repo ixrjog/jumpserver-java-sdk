@@ -13,6 +13,16 @@ public class AssetsNodes {
 
     private String[] assets;
 
+    private String[] nodes;
+
+    public String[] getNodes() {
+        return nodes;
+    }
+
+    public void setNodes(String[] nodes) {
+        this.nodes = nodes;
+    }
+
     public String[] getAssets() {
         return assets;
     }
