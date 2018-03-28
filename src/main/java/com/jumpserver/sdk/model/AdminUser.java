@@ -1,7 +1,5 @@
 package com.jumpserver.sdk.model;
 
-import com.alibaba.fastjson.annotation.JSONField;
-
 import java.util.Date;
 
 public class AdminUser {
@@ -11,7 +9,7 @@ public class AdminUser {
 
     private String username;
 
-    private String _password;
+    private String password;
 
     private Date date_created;
 
@@ -19,9 +17,9 @@ public class AdminUser {
 
     private String created_by;
 
-    private String _private_key;
+    private String private_key;
 
-    private String _public_key;
+    private String public_key;
 
     private Boolean become;
 
@@ -59,14 +57,6 @@ public class AdminUser {
     public void setUsername(String username) {
         this.username = username;
     }
-    @JSONField(name = "_password")
-    public String get_password() {
-        return _password;
-    }
-    @JSONField(name = "_password")
-    public void set_password(String _password) {
-        this._password = _password;
-    }
 
     public Date getDate_created() {
         return date_created;
@@ -90,22 +80,6 @@ public class AdminUser {
 
     public void setCreated_by(String created_by) {
         this.created_by = created_by;
-    }
-    @JSONField(name = "_private_key")
-    public String get_private_key() {
-        return _private_key;
-    }
-    @JSONField(name = "_private_key")
-    public void set_private_key(String _private_key) {
-        this._private_key = _private_key;
-    }
-    @JSONField(name = "_public_key")
-    public String get_public_key() {
-        return _public_key;
-    }
-    @JSONField(name = "_public_key")
-    public void set_public_key(String _public_key) {
-        this._public_key = _public_key;
     }
 
     public Boolean getBecome() {
@@ -154,5 +128,29 @@ public class AdminUser {
 
     public void setClusters(String[] clusters) {
         this.clusters = clusters;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getPrivate_key() {
+        return private_key;
+    }
+
+    public void setPrivate_key(String private_key) {
+        this.private_key = private_key;
+    }
+
+    public String getPublic_key() {
+        return public_key;
+    }
+
+    public void setPublic_key(String public_key) {
+        this.public_key = public_key;
     }
 }

@@ -87,6 +87,10 @@ public class JmsAssetsService extends JmsBaseService {
         return super.delete(adminUser, ApiConstants.ADMIN_USERS, adminUser.getId());
     }
 
+    public Map<String, String> updateAdminUserAuth(AdminUser adminUser) {
+        return super.updateX(adminUser, ApiConstants.ADMIN_USERS_AUTH, adminUser.getId());
+    }
+
     public Map<String, String> queryAdminUser(String id) {
         return super.query(id, ApiConstants.ADMIN_USERS);
     }

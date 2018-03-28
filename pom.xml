@@ -41,7 +41,7 @@
 	</dependencies>
 
     <build>
-        <finalName>jumpser-java-jdk</finalName>
+        <finalName>jumpserver-java-jdk</finalName>
         <plugins>
             <plugin>
                 <artifactId>maven-compiler-plugin</artifactId>
