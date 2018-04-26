@@ -178,7 +178,7 @@ public class JmsAssetsServiceTest {
     @Test
     public void au4() {
         AdminUser adminUser = new AdminUser();
-        adminUser.setId("e7a07971-0b69-4691-aedb-65e413f9279d");
+        adminUser.setId("792732ce-9cd0-4cb9-af25-37cb843356f1");
         adminUser.setPassword("pssswofdd");
         adminUser.setPrivate_key("-----BEGIN RSA PRIVATE KEY-----\n" +
                 "MIIEowIBAAKCAQEAjcSD0EGmfTyexO4jDMF8Orw/eXM4t+rSzXDmzP1n8iqahhVV\n" +
@@ -238,7 +238,7 @@ public class JmsAssetsServiceTest {
     @Test
     public void su4() {
         SystemUser systemUser = new SystemUser();
-        systemUser.setId("8caf675e-d341-48e3-b00f-24206fb3c208");
+        systemUser.setId("ece3101e-317e-459e-a315-c92283c4d146");
         systemUser.setUsername("username");
         systemUser.setPassword("password");
         systemUser.setPrivate_key("-----BEGIN RSA PRIVATE KEY-----\n" +

@@ -13,7 +13,7 @@ public class JmsAssetsPerssionServiceTest {
 
     @Before
     public void getJmsAssetsService() {
-        jmsPermissionService= new JmsPermissionService("http://localhost:8080", "admin", "admin");
+        jmsPermissionService = new JmsPermissionService("http://localhost:8088", "admin", "admin");
         String token = jmsPermissionService.getToken();
         System.out.println(token);
     }
@@ -22,10 +22,11 @@ public class JmsAssetsPerssionServiceTest {
     public void t11() {
         AssetsPermission assetsPermission = new AssetsPermission();
         assetsPermission.setName("SDK授权规则");
-        assetsPermission.setSystem_user("43ce643d-df31-4267-aadb-b9db3afec68b");
-        assetsPermission.setUser_group("a9eb1158-ee23-4b62-815f-91f342bc66f3");
-//        assetsPermission.setAsset_groups(new String[]{"99028af4-8739-494b-8108-e80b6210bad4"});
-        assetsPermission.setNode("3e62f4e4-4902-4754-8916-c3b3b0503c19");
+        assetsPermission.setSystem_users(new String[]{"c9437cf5-3266-458c-a968-69c6c89e3a3e"});
+//        assetsPermission.setUser_groups(new String[]{"a9eb1158-ee23-4b62-815f-91f342bc66f3"});
+        assetsPermission.setUsers(new String[]{"a1c94669-1c4c-47a8-ab27-9092b3dc4363"});
+//        assetsPermission.setNodes(new String[]{"3e62f4e4-4902-4754-8916-c3b3b0503c19"});
+        assetsPermission.setAssets(new String[]{"d1bda44a-2986-414d-adc3-881718b3a0ae"});
         Map<String, String> map = jmsPermissionService.addAssetpermission(assetsPermission);
         System.out.println(map);
     }
@@ -45,8 +46,5 @@ public class JmsAssetsPerssionServiceTest {
         Map<String, String> map = jmsPermissionService.queryAssetpermission(id);
         System.out.println(map);
     }
-
-
-
 
 }

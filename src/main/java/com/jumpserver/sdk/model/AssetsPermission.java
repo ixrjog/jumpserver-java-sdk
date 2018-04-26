@@ -15,18 +15,19 @@ public class AssetsPermission {
 
     private Date date_created;
 
+    private Date date_start;
+
     private String comment;
 
-    private String user_group;
+    private String[] user_groups;
 
     private String[] users;
 
-    private String node;
+    private String[] nodes;
 
     private String[] assets;
 
-    private String system_user;
-
+    private String[] system_users;
 
     public String getId() {
         return id;
@@ -76,6 +77,14 @@ public class AssetsPermission {
         this.date_created = date_created;
     }
 
+    public Date getDate_start() {
+        return date_start;
+    }
+
+    public void setDate_start(Date date_start) {
+        this.date_start = date_start;
+    }
+
     public String getComment() {
         return comment;
     }
@@ -84,6 +93,13 @@ public class AssetsPermission {
         this.comment = comment;
     }
 
+    public String[] getUser_groups() {
+        return user_groups;
+    }
+
+    public void setUser_groups(String[] user_groups) {
+        this.user_groups = user_groups;
+    }
 
     public String[] getUsers() {
         return users;
@@ -93,6 +109,13 @@ public class AssetsPermission {
         this.users = users;
     }
 
+    public String[] getNodes() {
+        return nodes;
+    }
+
+    public void setNodes(String[] nodes) {
+        this.nodes = nodes;
+    }
 
     public String[] getAssets() {
         return assets;
@@ -102,27 +125,11 @@ public class AssetsPermission {
         this.assets = assets;
     }
 
-    public String getUser_group() {
-        return user_group;
+    public String[] getSystem_users() {
+        return system_users;
     }
 
-    public void setUser_group(String user_group) {
-        this.user_group = user_group;
-    }
-
-    public String getNode() {
-        return node;
-    }
-
-    public void setNode(String node) {
-        this.node = node;
-    }
-
-    public String getSystem_user() {
-        return system_user;
-    }
-
-    public void setSystem_user(String system_user) {
-        this.system_user = system_user;
+    public void setSystem_users(String[] system_users) {
+        this.system_users = system_users;
     }
 }
