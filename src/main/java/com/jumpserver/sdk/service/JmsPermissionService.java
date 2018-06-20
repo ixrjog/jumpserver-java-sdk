@@ -5,7 +5,12 @@ import com.jumpserver.sdk.model.AssetsPermission;
 
 import java.util.Map;
 
-public class JmsPermissionService extends JmsBaseService{
+public class JmsPermissionService extends JmsBaseService {
+
+    public JmsPermissionService(String url, String token) {
+        this.URL = url;
+        this.TOKEN = token;
+    }
 
     public JmsPermissionService(String url, String username, String password) {
         super(url, username, password);
@@ -17,11 +22,11 @@ public class JmsPermissionService extends JmsBaseService{
     }
 
     public Map<String, String> updateAssetpermission(AssetsPermission assetsPermission) {
-        return super.update(assetsPermission,ApiConstants.ASSET_PERMISSIONS, assetsPermission.getId());
+        return super.update(assetsPermission, ApiConstants.ASSET_PERMISSIONS, assetsPermission.getId());
     }
 
     public Map<String, String> deleteAssetpermission(AssetsPermission assetsPermission) {
-        return super.delete(assetsPermission,ApiConstants.ASSET_PERMISSIONS, assetsPermission.getId());
+        return super.delete(assetsPermission, ApiConstants.ASSET_PERMISSIONS, assetsPermission.getId());
     }
 
     public Map<String, String> queryAssetpermission(String id) {

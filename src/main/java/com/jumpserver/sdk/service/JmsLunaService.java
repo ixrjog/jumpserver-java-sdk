@@ -11,10 +11,15 @@ import java.util.Map;
 
 public class JmsLunaService extends JmsBaseService {
 
+
     public JmsLunaService(String url, String username, String password) {
         super(url, username, password);
     }
 
+    public JmsLunaService(String url, String token) {
+        this.URL = url;
+        this.TOKEN = token;
+    }
 
     public Map<String, String> getLunaToken(Luna luna) {
         return super.add(luna, ApiConstants.LUNA_TOKEN);

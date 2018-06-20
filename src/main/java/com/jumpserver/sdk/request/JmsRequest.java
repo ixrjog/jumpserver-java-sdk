@@ -66,7 +66,7 @@ public class JmsRequest {
         request.addHeader("Authorization", token);
         request.addHeader("Content-Encoding", "UTF-8");
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        RequestConfig config = RequestConfig.custom().setSocketTimeout(2000).setConnectionRequestTimeout(2000).build();
+        RequestConfig config = RequestConfig.custom().setSocketTimeout(10000).setConnectionRequestTimeout(10000).build();
         request.setConfig(config);
         HttpResponse response = httpclient.execute(request);
         return checkoutApiResult(httpclient,response);
@@ -76,7 +76,7 @@ public class JmsRequest {
         request.addHeader("Content-Type", "application/json");
         request.addHeader("Content-Encoding", "UTF-8");
         CloseableHttpClient httpclient = HttpClients.createDefault();
-        RequestConfig config = RequestConfig.custom().setSocketTimeout(2000).setConnectionRequestTimeout(2000).build();
+        RequestConfig config = RequestConfig.custom().setSocketTimeout(10000).setConnectionRequestTimeout(10000).build();
         request.setConfig(config);
         HttpResponse response = httpclient.execute(request);
         Map<String, String> map = checkoutApiResult(httpclient, response);

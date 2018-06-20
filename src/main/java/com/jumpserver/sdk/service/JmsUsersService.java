@@ -8,6 +8,11 @@ import java.util.Map;
 
 public class JmsUsersService extends JmsBaseService {
 
+    public JmsUsersService(String url, String token) {
+        this.URL = url;
+        this.TOKEN = token;
+    }
+
     public JmsUsersService(String url, String username, String password) {
         super(url, username, password);
     }

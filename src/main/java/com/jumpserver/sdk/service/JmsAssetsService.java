@@ -11,6 +11,11 @@ public class JmsAssetsService extends JmsBaseService {
         super(url, username, password);
     }
 
+    public JmsAssetsService(String url, String token) {
+        this.URL = url;
+        this.TOKEN = token;
+    }
+
     //资产
     public Map<String, String> addAsset(Asset asset) {
         return super.add(asset, ApiConstants.ASSETS);
@@ -57,9 +62,8 @@ public class JmsAssetsService extends JmsBaseService {
 
     public Map<String, String> updateAssetsNodesChildren(String parentId, AssetsNodes assetsNodes) {
         String url = ApiConstants.NODES_CHILDREN_ADD.replaceAll("\\{" + "id" + "\\}", parentId);
-        return super.updatePut(assetsNodes,url);
+        return super.updatePut(assetsNodes, url);
     }
-
 
     //资产树资产
     public Map<String, String> addAssetsNodesAsset(AssetsNodes assetsNodes, String nodeId) {
