@@ -37,6 +37,9 @@ public class SystemUser {
 
     private String[] nodes;
 
+    private String login_mode;
+
+
     public String getId() {
         return id;
     }
@@ -164,4 +167,13 @@ public class SystemUser {
     public void setNodes(String[] nodes) {
         this.nodes = nodes;
     }
+
+    public String getLogin_mode() {
+        return login_mode;
+    }
+
+    public void setLogin_mode(String login_mode) {
+        this.login_mode = login_mode;
+    }
+
 }

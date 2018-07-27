@@ -77,6 +77,8 @@ public class Asset {
 
     private String[] labels;
 
+    private String protocol;
+
     public String getId() {
         return id;
     }
@@ -371,5 +373,13 @@ public class Asset {
 
     public void setLabels(String[] labels) {
         this.labels = labels;
+    }
+
+    public String getProtocol() {
+        return protocol;
+    }
+
+    public void setProtocol(String protocol) {
+        this.protocol = protocol;
     }
 }
