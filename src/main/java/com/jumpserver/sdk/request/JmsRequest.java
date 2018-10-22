@@ -1,6 +1,6 @@
 package com.jumpserver.sdk.request;
 
-import com.jumpserver.sdk.base.ApiType;
+import com.jumpserver.sdk.base.RequestType;
 import com.jumpserver.sdk.base.JmsException;
 import org.apache.http.*;
 import org.apache.http.client.HttpRequestRetryHandler;
@@ -25,7 +25,7 @@ import java.util.Map;
 
 public class JmsRequest {
 
-    public static Map<String, String> getRequest(String url, String json, ApiType type, String token) throws Exception {
+    public static Map<String, String> getRequest(String url, String json, RequestType type, String token) throws Exception {
         Map<String, String> map = new HashMap<>();
         EntityBuilder entityBuilder = EntityBuilder.create();
         entityBuilder.setText(json);

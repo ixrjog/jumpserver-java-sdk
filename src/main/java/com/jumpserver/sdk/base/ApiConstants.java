@@ -18,8 +18,11 @@ public class ApiConstants{
     public static final  String ADMIN_USERS = "/api/assets/v1/admin-user/";
     public static final  String ADMIN_USERS_CLUSTER = "/api/assets/v1/admin-user/{id}/clusters/";
     public static final  String ADMIN_USERS_AUTH = "/api/assets/v1/admin-user/{id}/auth/";
+
     public static final  String SYSTEM_USERS = "/api/assets/v1/system-user/";
     public static final  String SYSTEM_USERS_AUTHINFO = "/api/assets/v1/system-user/{id}/auth-info/";
+
+
     public static final  String ASSET_PERMISSIONS = "/api/perms/v1/asset-permissions/";
 
     public static final  String LUNA_TOKEN = "/api/users/v1/connection-token/";

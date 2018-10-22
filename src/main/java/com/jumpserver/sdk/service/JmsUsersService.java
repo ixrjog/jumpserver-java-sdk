@@ -1,8 +1,8 @@
 package com.jumpserver.sdk.service;
 
 import com.jumpserver.sdk.base.ApiConstants;
-import com.jumpserver.sdk.model.User;
-import com.jumpserver.sdk.model.Usergroup;
+import com.jumpserver.sdk.v2.model.User;
+import com.jumpserver.sdk.v2.model.UserGroup;
 
 import java.util.Map;
 
@@ -33,15 +33,15 @@ public class JmsUsersService extends JmsBaseService {
         return super.query(id, ApiConstants.USERS);
     }
 
-    public Map<String, String> addUserGroup(Usergroup usergroup) {
+    public Map<String, String> addUserGroup(UserGroup usergroup) {
         return super.add(usergroup, ApiConstants.USERGROUPS);
     }
 
-    public Map<String, String> updateUserGroup(Usergroup usergroup) {
+    public Map<String, String> updateUserGroup(UserGroup usergroup) {
         return super.update(usergroup, ApiConstants.USERGROUPS, usergroup.getId());
     }
 
-    public Map<String, String> deleteUserGroup(Usergroup usergroup) {
+    public Map<String, String> deleteUserGroup(UserGroup usergroup) {
         return super.delete(usergroup, ApiConstants.USERGROUPS, usergroup.getId());
     }
 

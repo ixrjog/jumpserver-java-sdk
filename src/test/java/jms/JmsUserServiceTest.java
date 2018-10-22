@@ -1,122 +1,117 @@
 package jms;
 
-import com.jumpserver.sdk.model.User;
-import com.jumpserver.sdk.model.Usergroup;
-import com.jumpserver.sdk.service.JmsUsersService;
+import com.jumpserver.sdk.v2.common.ActionResponse;
+import com.jumpserver.sdk.v2.builder.ClientBuilder;
+import com.jumpserver.sdk.v2.builder.JMSClient;
+import com.jumpserver.sdk.v2.model.User;
+import com.jumpserver.sdk.v2.model.UserGroup;
 import org.junit.Before;
 import org.junit.Test;
 
-import java.util.Map;
+import java.util.List;
 
 public class JmsUserServiceTest {
 
+    private JMSClient os;
 
-    private   JmsUsersService jmsUsersService;
     @Before
     public void before() {
-         jmsUsersService = new JmsUsersService("http://ccoe-dev2.cmbchina.io", "admin", "admin");
+        os = new ClientBuilder()
+                .endpoint("http://localhost:8088")
+                .credentials("admin", "admin")
+                .header("x-jms-org", "7c6955bc-f004-4573-b46a-4072b0dd0d03")
+                .authenticate();
+        System.out.println(os.getToken().getToken());
     }
 
     @Test
-    public void testGetToken() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://ccoe-dev2.cmbchina.io", "admin", "admin");
-        String token = jmsUsersService.getToken();
-        System.out.println(token);
+    public void users() {
+        List<User> users = os.users().list();
+        System.out.println(users.size());
+        for (User user : users) {
+            System.out.println(user.getName());
+            System.out.println(user.getEmail());
+        }
     }
 
     @Test
-    public void t12() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
-//        String token = jmsUsersService.getToken();
-//        System.out.println(token);
+    public void getByName() {
+        List<User> users = os.users().getByName("user01");
+        System.out.println(users.size());
+        for (User user : users) {
+            System.out.println(user.getName());
+            System.out.println(user.getEmail());
+        }
+    }
+
+    @Test
+    public void addUser() {
         User user = new User();
-        user.setUsername("王大锤");
-        user.setName("王大锤");
-        user.setEmail("wdc@qq.com");
-        user.setGroups(new String[]{});
-        Map<String, String> map = jmsUsersService.addUser(user);
-        System.out.println(map.toString());
+        user.setGroups(new String[]{"570cd13a-84dd-4710-9385-99ea3ad698c9"});
+        user.setName("bbb");
+        user.setUsername("bbb");
+        user.setEmail("bbb@fit2cloud.com");
+        User user1 = os.users().create(user);
+        System.out.println(user1.getId());
     }
 
     @Test
-    public void t13() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
-        String token = jmsUsersService.getToken();
-        System.out.println(token);
+    public void updateUser() {
         User user = new User();
-        user.setId("363c5584-6331-4b82-a595-e2844635f766");
-        user.setGroups(new String[]{"5a16dd3c-17d5-44de-a796-32ee442acdcf"});
-        Map<String, String> map = jmsUsersService.updateUser(user);
-        System.out.println(map.toString());
+        user.setId("f026e86d-e1d0-4b14-a461-26bb8912f369");
+        user.setName("aaa");
+        user.setUsername("aaa");
+        user.setEmail("aaa@fit2cloud.com");
+        User user1 = os.users().update(user);
+        System.out.println(user1.getEmail());
+        System.out.println(user1.getName());
+        System.out.println(user1.getUsername());
     }
 
     @Test
-    public void t14() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
-        String token = jmsUsersService.getToken();
-        System.out.println(token);
-        User user = new User();
-        user.setId("363c5584-6331-4b82-a595-e2844635f766");
-        Map<String, String> map = jmsUsersService.deleteUser(user);
-        System.out.println(map.toString());
+    public void deleteUser() {
+        ActionResponse delete = os.users().delete("7669b178-0fcb-4996-846d-2cea15ea50b8");
+        System.out.println(delete.toString());
     }
 
     @Test
-    public void t15() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://ccoe-dev2.cmbchina.io", "admin", "admin");
-        String token = jmsUsersService.getToken();
-        System.out.println(token);
-//        User user = new User();
-//        user.setId("9e39700c-6a7b-4f7d-9c8f-2ed52e1b8faf");
-//        Map<String, String> map = jmsUsersService.queryUser("9e39700c-6a7b-4f7d-9c8f-2ed52e1b8faf");
-        Map<String, String> map = jmsUsersService.queryUser("4947bb2b-ccc6-4d53-a3ac-21083c4b022a");
-        System.out.println(map.toString());
+    public void changePassword() {
+        ActionResponse admin = os.users().changePassword("a7342559-507b-4aaa-bef7-38edf2d98d3b", "admin123");
+        System.out.println(admin);
     }
 
     @Test
-    public void t21() {
-        Usergroup usergroup  =  new Usergroup();
-        usergroup.setName("sdk用户组");
-        Map<String, String> map = jmsUsersService.addUserGroup(usergroup);
-        System.out.println(map.toString());
-    }
-
-
-    @Test
-    public void t22() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
-        String token = jmsUsersService.getToken();
-        System.out.println(token);
-        Usergroup usergroup  =  new Usergroup();
-        usergroup.setId("4eb30422-db30-4edd-807f-bd4debc1e3e2");
-        usergroup.setName("sdk用户组-modify");
-        Map<String, String> map = jmsUsersService.updateUserGroup(usergroup);
-        System.out.println(map.toString());
-    }
-
-
-    @Test
-    public void t23() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
-        String token = jmsUsersService.getToken();
-        System.out.println(token);
-        Usergroup usergroup  =  new Usergroup();
-        usergroup.setId("4eb30422-db30-4edd-807f-bd4debc1e3e2");
-        Map<String, String> map = jmsUsersService.deleteUserGroup(usergroup);
-        System.out.println(map.toString());
+    public void userGroups() {
+        List<UserGroup> usergroups = os.users().userGroups();
+        System.out.println(usergroups.size());
+        for (UserGroup usergroup : usergroups) {
+            System.out.println(usergroup.getName());
+        }
     }
 
     @Test
-    public void t24() {
-        JmsUsersService jmsUsersService = new JmsUsersService("http://localhost:8080", "admin", "admin");
-        String token = jmsUsersService.getToken();
-        System.out.println(token);
-        User user = new User();
-        user.setId("f29eaa54-c861-4f62-8764-4e3197b2a242");
-        user.setPassword("aaa");
-        Map<String, String> map = jmsUsersService.userPasswordReset(user);
-        System.out.println(map.toString());
+    public void addUserGroups() {
+        UserGroup usergroup = new UserGroup();
+        usergroup.setName("孤狼B组");
+        UserGroup userGroupBack = os.users().createUserGroup(usergroup);
+        System.out.println(userGroupBack.getId());
+        System.out.println(userGroupBack.getName());
     }
 
+    @Test
+    public void updateUserGroups() {
+        UserGroup usergroup = new UserGroup();
+        usergroup.setName("孤狼A组");
+        usergroup.setId("90b20128-c92c-4d69-9a18-68d9636b7ac1");
+        UserGroup userGroupBack = os.users().updateUserGroup(usergroup);
+        System.out.println(userGroupBack.getId());
+        System.out.println(userGroupBack.getName());
+    }
+
+    @Test
+    public void deleteUserGroups() {
+        ActionResponse actionResponse = os.users().deleteUserGroup("90b20128-c92c-4d69-9a18-68d9636b7ac1");
+        System.out.println(actionResponse);
+    }
 
 }

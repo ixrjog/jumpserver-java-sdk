@@ -1,9 +1,9 @@
 package com.jumpserver.sdk.service;
 
 import com.jumpserver.sdk.base.ApiConstants;
-import com.jumpserver.sdk.base.ApiType;
+import com.jumpserver.sdk.base.RequestType;
 import com.jumpserver.sdk.base.JmsException;
-import com.jumpserver.sdk.model.Luna;
+import com.jumpserver.sdk.v2.model.Luna;
 import com.jumpserver.sdk.request.JmsRequest;
 
 import java.util.HashMap;
@@ -28,7 +28,7 @@ public class JmsLunaService extends JmsBaseService {
     public Map<String, String> validateToken(String token) {
         try {
             Map<String, String> map = new HashMap<>();
-            map = JmsRequest.getRequest(this.URL + ApiConstants.LUNA_TOKEN_VALIDATE + token, null, ApiType.API_GET, this.TOKEN);
+            map = JmsRequest.getRequest(this.URL + ApiConstants.LUNA_TOKEN_VALIDATE + token, null, RequestType.API_GET, this.TOKEN);
             return map;
         } catch (Exception e) {
             e.printStackTrace();

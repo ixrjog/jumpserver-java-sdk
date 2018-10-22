@@ -1,7 +1,7 @@
 package com.jumpserver.sdk.service;
 
 import com.jumpserver.sdk.base.ApiConstants;
-import com.jumpserver.sdk.model.AssetsPermission;
+import com.jumpserver.sdk.v2.model.AssetsPermission;
 
 import java.util.Map;
 

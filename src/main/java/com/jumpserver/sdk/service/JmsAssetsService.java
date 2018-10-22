@@ -1,7 +1,7 @@
 package com.jumpserver.sdk.service;
 
 import com.jumpserver.sdk.base.ApiConstants;
-import com.jumpserver.sdk.model.*;
+import com.jumpserver.sdk.v2.model.*;
 
 import java.util.Map;
 
@@ -34,15 +34,15 @@ public class JmsAssetsService extends JmsBaseService {
     }
 
     //资产树
-    public Map<String, String> addAssetsNodes(AssetsNodes assetsNodes) {
+    public Map<String, String> addAssetsNodes(AssetsNode assetsNodes) {
         return super.add(assetsNodes, ApiConstants.NODES);
     }
 
-    public Map<String, String> updateAssetsNodes(AssetsNodes assetsNodes) {
+    public Map<String, String> updateAssetsNodes(AssetsNode assetsNodes) {
         return super.update(assetsNodes, ApiConstants.NODES, assetsNodes.getId());
     }
 
-    public Map<String, String> deleteAssetsNodes(AssetsNodes assetsNodes) {
+    public Map<String, String> deleteAssetsNodes(AssetsNode assetsNodes) {
         return super.delete(assetsNodes, ApiConstants.NODES, assetsNodes.getId());
     }
 
@@ -51,7 +51,7 @@ public class JmsAssetsService extends JmsBaseService {
     }
 
     //资产树下级
-    public Map<String, String> addAssetsNodesChildren(String parentId, AssetsNodes assetsNodes) {
+    public Map<String, String> addAssetsNodesChildren(String parentId, AssetsNode assetsNodes) {
         String url = ApiConstants.NODES_CHILDREN.replaceAll("\\{" + "id" + "\\}", parentId);
         return super.add(assetsNodes, url);
     }
@@ -60,17 +60,17 @@ public class JmsAssetsService extends JmsBaseService {
         return super.query(parentId, ApiConstants.NODES_CHILDREN);
     }
 
-    public Map<String, String> updateAssetsNodesChildren(String parentId, AssetsNodes assetsNodes) {
+    public Map<String, String> updateAssetsNodesChildren(String parentId, AssetsNode assetsNodes) {
         String url = ApiConstants.NODES_CHILDREN_ADD.replaceAll("\\{" + "id" + "\\}", parentId);
         return super.updatePut(assetsNodes, url);
     }
 
     //资产树资产
-    public Map<String, String> addAssetsNodesAsset(AssetsNodes assetsNodes, String nodeId) {
+    public Map<String, String> addAssetsNodesAsset(AssetsNode assetsNodes, String nodeId) {
         return super.updateX(assetsNodes, ApiConstants.NODES_ASSETS_ADD, nodeId);
     }
 
-    public Map<String, String> removeAssetsNodesAsset(AssetsNodes assetsNodes, String nodeId) {
+    public Map<String, String> removeAssetsNodesAsset(AssetsNode assetsNodes, String nodeId) {
         return super.updateX(assetsNodes, ApiConstants.NODES_ASSETS_REMOVE, nodeId);
     }
 
