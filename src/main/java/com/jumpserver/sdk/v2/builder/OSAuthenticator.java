@@ -1,13 +1,13 @@
 package com.jumpserver.sdk.v2.builder;
 
 import com.alibaba.fastjson.JSONObject;
+import com.jumpserver.sdk.v2.common.ClientConstants;
+import com.jumpserver.sdk.v2.common.HttpMethod;
 import com.jumpserver.sdk.v2.exceptions.AuthenticationException;
 import com.jumpserver.sdk.v2.httpclient.HttpEntityHandler;
 import com.jumpserver.sdk.v2.httpclient.HttpExecutor;
 import com.jumpserver.sdk.v2.httpclient.HttpRequest;
 import com.jumpserver.sdk.v2.httpclient.HttpResponse;
-import com.jumpserver.sdk.v2.common.ClientConstants;
-import com.jumpserver.sdk.v2.common.HttpMethod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -40,22 +40,39 @@ public class OSAuthenticator {
                 .path(ClientConstants.TOKEN)
                 .build();
 
-        HttpResponse response = HttpExecutor.create().execute(request);
+        JMSClient client;
+        Token token;
+        try {
+            HttpResponse response = HttpExecutor.create().execute(request);
 
-        if (response.getStatus() >= 400) {
-            try {
-                throw new AuthenticationException(response.getStatusMessage());
-            } finally {
-                HttpEntityHandler.closeQuietly(response);
+            if (response.getStatus() >= 400) {
+                try {
+                    throw new AuthenticationException(response.getStatusMessage());
+                } finally {
+                    HttpEntityHandler.closeQuietly(response);
+                }
             }
+            token = response.getEntity(Token.class);
+            token.setUsername(username);
+            token.setPassword(password);
+            token.setEndpoint(endpoint);
+            token.setXpack(false);
+            client = JMSClientImpl.createSession(token, headers);
+        } catch (Exception e) {
+            throw new AuthenticationException(e.getMessage());
         }
 
-        Token token = response.getEntity(Token.class);
-        token.setUsername(username);
-        token.setPassword(password);
-        token.setEndpoint(endpoint);
-
-        JMSClient client = JMSClientImpl.createSession(token, headers);
+        if (headers.get(ClientConstants.X_JMS_ORG) == null) {
+            try {
+                //这个api存在就有xpack插件
+                client.orgs().listOrg();
+                token.setXpack(true);
+                client = JMSClientImpl.createSession(token, headers);
+            } catch (Exception e) {
+                LOG.error("访问xpack插件失败，不存在xpack插件");
+                e.printStackTrace();
+            }
+        }
         return client;
     }
 

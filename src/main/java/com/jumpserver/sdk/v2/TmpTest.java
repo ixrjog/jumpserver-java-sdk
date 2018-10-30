@@ -10,11 +10,11 @@ public class TmpTest {
 
     public static void main(String[] args) throws IOException {
 
-        String targetObj = "AdminUser";
-        String targetObjId = "userId";
+        String targetObj = "Org";
+        String targetObjId = "orgId";
 
-//        File file = new File("/Users/yankaijun/sources/CMB/jumpserver-java-sdk/src/main/java/com/jumpserver/sdk/v2/jumpserver/1.tmp");
-        File file = new File("/Users/yankaijun/sources/CMB/jumpserver-java-sdk/src/main/java/com/jumpserver/sdk/v2/jumpserver/2.tmp");
+        File file = new File("/Users/yankaijun/sources/CMB/jumpserver-java-sdk/src/main/java/com/jumpserver/sdk/v2/jumpserver/1.tmp");
+//        File file = new File("/Users/yankaijun/sources/CMB/jumpserver-java-sdk/src/main/java/com/jumpserver/sdk/v2/jumpserver/2.tmp");
         BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(file)));
         StringBuffer buffer = new StringBuffer();
         String s = bufferedReader.readLine();

@@ -5,6 +5,7 @@ public class Token {
     private String endpoint;
     private String username;
     private String password;
+    private boolean xpack;
 
     public Token() {
     }
@@ -13,6 +14,14 @@ public class Token {
         this.endpoint = endpoint;
         this.username = username;
         this.password = password;
+    }
+
+    public boolean getXpack() {
+        return xpack;
+    }
+
+    public void setXpack(boolean xpack) {
+        this.xpack = xpack;
     }
 
     public String getToken() {
@@ -54,6 +63,7 @@ public class Token {
                 ", endpoint='" + endpoint + '\'' +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
+                ", xpack=" + xpack +
                 '}';
     }
 }

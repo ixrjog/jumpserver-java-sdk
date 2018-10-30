@@ -1,6 +1,5 @@
 package jms;
 
-import com.jumpserver.sdk.service.JmsAssetsService;
 import com.jumpserver.sdk.v2.builder.ClientBuilder;
 import com.jumpserver.sdk.v2.builder.JMSClient;
 import com.jumpserver.sdk.v2.common.ActionResponse;
@@ -10,12 +9,10 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.util.List;
-import java.util.Map;
 
 public class JmsAssetsServiceTest {
 
     private JMSClient os;
-    JmsAssetsService jmsAssetsService;
 
     @Before
     public void token() {
@@ -114,14 +111,6 @@ public class JmsAssetsServiceTest {
         System.out.println(delete);
     }
 
-
-
-
-
-
-
-
-
     @Test
     public void node2() {
 
@@ -202,8 +191,8 @@ public class JmsAssetsServiceTest {
                 "0znw0cNna5ACZZ7hKWwFXXGqjoJmn6KmwMhRM/l0g6BqBi7Cpkfaqyl3SgvLA0zu\n" +
                 "ipUckOJc2ik7ZwLqe3IzjK0kaxcN1sr0zmWtLF+Hcdy7RwMkZF25\n" +
                 "-----END RSA PRIVATE KEY-----");
-        Map<String, String> map = jmsAssetsService.updateAdminUserAuth(adminUser);
-        System.out.println(map);
+//        Map<String, String> map = jmsAssetsService.updateAdminUserAuth(adminUser);
+//        System.out.println(map);
     }
 
     //系统用户
@@ -212,8 +201,8 @@ public class JmsAssetsServiceTest {
         SystemUser systemUser = new SystemUser();
         systemUser.setName("SDK-Name");
         systemUser.setUsername("SDK-Name");
-        Map<String, String> map = jmsAssetsService.addSystemUser(systemUser);
-        System.out.println(map);
+//        Map<String, String> map = jmsAssetsService.addSystemUser(systemUser);
+//        System.out.println(map);
     }
 
     @Test
@@ -222,14 +211,14 @@ public class JmsAssetsServiceTest {
         systemUser.setId("43ce643d-df31-4267-aadb-b9db3afec68b");
         systemUser.setName("SDK-Name-Modify");
         systemUser.setUsername("SDK-Name-Modify");
-        Map<String, String> map = jmsAssetsService.updateSystemUser(systemUser);
-        System.out.println(map);
+//        Map<String, String> map = jmsAssetsService.updateSystemUser(systemUser);
+//        System.out.println(map);
     }
 
     @Test
     public void su3() {
-        Map<String, String> map = jmsAssetsService.querySystemUserAuthInfo("8caf675e-d341-48e3-b00f-24206fb3c208");
-        System.out.println(map);
+//        Map<String, String> map = jmsAssetsService.querySystemUserAuthInfo("8caf675e-d341-48e3-b00f-24206fb3c208");
+//        System.out.println(map);
     }
 
     @Test
@@ -265,8 +254,8 @@ public class JmsAssetsServiceTest {
                 "0znw0cNna5ACZZ7hKWwFXXGqjoJmn6KmwMhRM/l0g6BqBi7Cpkfaqyl3SgvLA0zu\n" +
                 "ipUckOJc2ik7ZwLqe3IzjK0kaxcN1sr0zmWtLF+Hcdy7RwMkZF25\n" +
                 "-----END RSA PRIVATE KEY-----");
-        Map<String, String> map = jmsAssetsService.updateSystemUserAuthInfo(systemUser);
-        System.out.println(map);
+//        Map<String, String> map = jmsAssetsService.updateSystemUserAuthInfo(systemUser);
+//        System.out.println(map);
     }
 
     //标签
@@ -275,8 +264,8 @@ public class JmsAssetsServiceTest {
         AssetsLabel assetsLabel = new AssetsLabel();
         assetsLabel.setName("SDK-Name");
         assetsLabel.setValue("SDK_value");
-        Map<String, String> map = jmsAssetsService.addAssetsLabel(assetsLabel);
-        System.out.println(map);
+//        Map<String, String> map = jmsAssetsService.addAssetsLabel(assetsLabel);
+//        System.out.println(map);
     }
 
     @Test
@@ -285,14 +274,14 @@ public class JmsAssetsServiceTest {
         assetsLabel.setName("SDK-Name-Modify");
         assetsLabel.setValue("SDK-Name-Value");
         assetsLabel.setId("43ce643d-df31-4267-aadb-b9db3afec68b");
-        Map<String, String> map = jmsAssetsService.updateAssetsLabel(assetsLabel);
-        System.out.println(map);
+//        Map<String, String> map = jmsAssetsService.updateAssetsLabel(assetsLabel);
+//        System.out.println(map);
     }
 
     @Test
     public void systemUserPush() {
-        Map<String, String> map = jmsAssetsService.systemUserPush("43ce643d-df31-4267-aadb-b9db3afec68b");
-        System.out.println(map);
+//        Map<String, String> map = jmsAssetsService.systemUserPush("43ce643d-df31-4267-aadb-b9db3afec68b");
+//        System.out.println(map);
     }
 
 }

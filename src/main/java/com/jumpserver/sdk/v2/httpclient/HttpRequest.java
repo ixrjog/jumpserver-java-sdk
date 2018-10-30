@@ -2,19 +2,17 @@ package com.jumpserver.sdk.v2.httpclient;
 
 import com.google.common.base.Function;
 import com.google.common.collect.Maps;
-import com.jumpserver.sdk.base.JmsException;
-//import com.jumpserver.sdk.v2.base.EndpointTokenProvider;
-import com.jumpserver.sdk.v2.model.entity.ModelEntity;
-//import com.jumpserver.sdk.v2.base.Payload;
-//import com.jumpserver.sdk.v2.base.ServiceType;
 import com.jumpserver.sdk.v2.builder.JMSClientImpl;
 import com.jumpserver.sdk.v2.common.ClientConstants;
 import com.jumpserver.sdk.v2.common.HttpMethod;
+import com.jumpserver.sdk.v2.exceptions.JmsException;
+import com.jumpserver.sdk.v2.model.entity.ModelEntity;
 
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
 
 public class HttpRequest<R> {
 

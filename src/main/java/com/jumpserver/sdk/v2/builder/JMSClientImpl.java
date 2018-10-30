@@ -4,6 +4,7 @@ import com.jumpserver.sdk.v2.api.Apis;
 import com.jumpserver.sdk.v2.httpclient.Config;
 import com.jumpserver.sdk.v2.jumpserver.assets.AssertsService;
 import com.jumpserver.sdk.v2.jumpserver.luna.LunaService;
+import com.jumpserver.sdk.v2.jumpserver.org.OrgService;
 import com.jumpserver.sdk.v2.jumpserver.permissions.PermissionService;
 import com.jumpserver.sdk.v2.jumpserver.users.UserService;
 
@@ -33,6 +34,11 @@ public class JMSClientImpl implements JMSClient {
     @Override
     public AssertsService assets() {
         return Apis.getAssetsServices();
+    }
+
+    @Override
+    public OrgService orgs() {
+        return Apis.getOrgServices();
     }
 
     @Override

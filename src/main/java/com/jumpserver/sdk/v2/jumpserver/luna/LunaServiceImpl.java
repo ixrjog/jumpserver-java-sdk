@@ -1,10 +1,10 @@
 package com.jumpserver.sdk.v2.jumpserver.luna;
 
 import com.alibaba.fastjson.JSON;
-import com.jumpserver.sdk.base.JmsException;
 import com.jumpserver.sdk.v2.builder.JMSClientImpl;
 import com.jumpserver.sdk.v2.common.BaseJMSService;
 import com.jumpserver.sdk.v2.common.ClientConstants;
+import com.jumpserver.sdk.v2.exceptions.JmsException;
 import com.jumpserver.sdk.v2.model.Luna;
 
 

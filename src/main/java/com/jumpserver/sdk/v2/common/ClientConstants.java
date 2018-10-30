@@ -6,7 +6,6 @@ public final class ClientConstants {
     public static final String BEARER = "Bearer ";
     public static final String X_JMS_ORG = "X-JMS-ORG";
 
-
     public static final String HEADER_CONTENT_TYPE = "Content-Type";
     public static final String HEADER_FOR_AUTH = "Auth-request";
     public static final String CONTENT_TYPE_JSON = "application/json";
@@ -32,6 +31,9 @@ public final class ClientConstants {
 
     // nodes
     public static final String ASSETS = "/api/assets/v1/assets/";
+
+    //org
+    public static final String ORG = "/xpack/orgs/api/v1/orgs/";
 
     // nodes children
     public static final String NODES_CHILDREN = "/api/assets/v1/nodes/{id}/children/";

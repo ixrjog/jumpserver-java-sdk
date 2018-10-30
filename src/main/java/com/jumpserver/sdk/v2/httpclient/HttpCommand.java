@@ -80,14 +80,15 @@ public final class HttpCommand<R> {
                         .setText(JSON.toJSONString(request.getEntity()));
             }
         } else if (request.hasJson()) {
+            System.out.println("请求json:" + request.getJson());
             builder = EntityBuilder.create().setContentType(ContentType.APPLICATION_JSON).setText(request.getJson());
         }
 
         if (builder != null && clientReq instanceof HttpEntityEnclosingRequestBase)
             ((HttpEntityEnclosingRequestBase) clientReq).setEntity(builder.build());
 
-        System.out.println("请求路径："+clientReq.getURI());
-        System.out.println("请求方式："+clientReq.getMethod());
+        System.out.println("请求路径：" + clientReq.getURI());
+        System.out.println("请求方式：" + clientReq.getMethod());
         return client.execute(clientReq);
     }
 
