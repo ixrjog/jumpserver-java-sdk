@@ -61,7 +61,7 @@ public class OSAuthenticator {
         } catch (Exception e) {
             throw new AuthenticationException(e.getMessage());
         }
-
+        //TODO 优化这个逻辑
         if (headers.get(ClientConstants.X_JMS_ORG) == null) {
             try {
                 //这个api存在就有xpack插件

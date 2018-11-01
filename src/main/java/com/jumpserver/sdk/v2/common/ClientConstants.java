@@ -34,6 +34,8 @@ public final class ClientConstants {
 
     //org
     public static final String ORG = "/xpack/orgs/api/v1/orgs/";
+    public static final String ORGUSERS = "/xpack/orgs/api/v1/org/{id}/users/";
+    public static final String ORGADMINS = "/xpack/orgs/api/v1/org/{id}/admins/";
 
     // nodes children
     public static final String NODES_CHILDREN = "/api/assets/v1/nodes/{id}/children/";

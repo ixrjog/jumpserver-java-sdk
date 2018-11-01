@@ -40,7 +40,7 @@ public class UserServiceImpl extends BaseJMSService implements UserService {
     @Override
     public User update(User user) {
         checkNotNull(user);
-        return patch(User.class, ClientConstants.USERS, user.getId(), "/").entity(user).execute();
+        return patch(User.class, ClientConstants.USERS, user.getId(), "/").json(JSON.toJSONString(user)).execute();
     }
 
     @Override
