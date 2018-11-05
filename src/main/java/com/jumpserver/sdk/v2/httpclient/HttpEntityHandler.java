@@ -32,6 +32,8 @@ public class HttpEntityHandler {
             //TODO options
 //            Handle<T> handle = Handle.create(response, returnType, options, requiresVoidBodyHandling);
 //            System.out.println(response.getEntity(String.class));
+
+            String text = "";
             if (response.getStatus() >= 400) {
 
 //                if (requiresVoidBodyHandling && ActionResponse.class == returnType) {
@@ -51,12 +53,12 @@ public class HttpEntityHandler {
 //                }
                 try {
                     InputStream inputStream = response.getInputStream();
-                    String text = IOUtils.toString(inputStream);
+                    text = IOUtils.toString(inputStream);
                     System.out.println("异常信息：" + text);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                throw new ClientResponseException(response.getStatusMessage());
+                throw new ClientResponseException(response.getStatusMessage() + " " + text);
             }
 
 //            if (options != null && options.hasParser()) {

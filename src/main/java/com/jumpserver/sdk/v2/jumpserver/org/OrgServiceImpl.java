@@ -45,44 +45,30 @@ public class OrgServiceImpl extends BaseJMSService implements OrgService {
     }
 
     @Override
-    public OrgUsers getOrgUsers(String orgId) {
+    public List<OrgUsers> getOrgUsers(String orgId) {
         checkNotNull(orgId);
-        String url = ClientConstants.ORGUSERS.replace("{id}", orgId);
-        return get(OrgUsers.class, url).execute();
+        String url = ClientConstants.ORGUSERS.replace("{org_id}", orgId);
+        return get(OrgUsers.class, url).executeList();
     }
 
     @Override
     public OrgUsers createOrgUsers(OrgUsers orgusers) {
         checkNotNull(orgusers);
-        String url = ClientConstants.ORGUSERS.replace("{id}", orgusers.getOrgId());
+        String url = ClientConstants.ORGUSERS.replace("{org_id}", orgusers.getOrgId());
         return post(OrgUsers.class, url).json(JSON.toJSONString(orgusers)).execute();
     }
 
     @Override
-    public OrgUsers updateOrgUsers(OrgUsers orgusers) {
-        checkNotNull(orgusers);
-        String url = ClientConstants.ORGUSERS.replace("{id}", orgusers.getOrgId());
-        return patch(OrgUsers.class, url).json(JSON.toJSONString(orgusers)).execute();
-    }
-
-    @Override
-    public OrgUsers getOrgAdmins(String orgId) {
+    public List<OrgUsers> getOrgAdmins(String orgId) {
         checkNotNull(orgId);
-        String url = ClientConstants.ORGADMINS.replace("{id}", orgId);
-        return get(OrgUsers.class, url).execute();
-    }
-
-    @Override
-    public OrgUsers updateOrgAdmins(OrgUsers orgusers) {
-        checkNotNull(orgusers);
-        String url = ClientConstants.ORGADMINS.replace("{id}", orgusers.getOrgId());
-        return patch(OrgUsers.class, url).json(JSON.toJSONString(orgusers)).execute();
+        String url = ClientConstants.ORGADMINS.replace("{org_id}", orgId);
+        return get(OrgUsers.class, url).executeList();
     }
 
     @Override
     public OrgUsers createOrgAdmins(OrgUsers orgusers) {
         checkNotNull(orgusers);
-        String url = ClientConstants.ORGADMINS.replace("{id}", orgusers.getOrgId());
+        String url = ClientConstants.ORGADMINS.replace("{org_id}", orgusers.getOrgId());
         return post(OrgUsers.class, url).json(JSON.toJSONString(orgusers)).execute();
     }
 

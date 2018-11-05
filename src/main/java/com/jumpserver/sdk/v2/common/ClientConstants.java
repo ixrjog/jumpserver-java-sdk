@@ -33,9 +33,13 @@ public final class ClientConstants {
     public static final String ASSETS = "/api/assets/v1/assets/";
 
     //org
-    public static final String ORG = "/xpack/orgs/api/v1/orgs/";
-    public static final String ORGUSERS = "/xpack/orgs/api/v1/org/{id}/users/";
-    public static final String ORGADMINS = "/xpack/orgs/api/v1/org/{id}/admins/";
+//    public static final String ORG = "/xpack/orgs/api/v1/orgs/";
+//    public static final String ORGUSERS = "/xpack/orgs/api/v1/org/{id}/users/";
+//    public static final String ORGADMINS = "/xpack/orgs/api/v1/org/{id}/admins/";
+
+    public static final String ORG = "/api/orgs/v1/orgs/";
+    public static final String ORGADMINS = "/api/orgs/v1/org/{org_id}/membership/admins/";
+    public static final String ORGUSERS = "/api/orgs/v1/org/{org_id}/membership/users/";
 
     // nodes children
     public static final String NODES_CHILDREN = "/api/assets/v1/nodes/{id}/children/";

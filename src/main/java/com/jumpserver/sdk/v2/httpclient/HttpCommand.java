@@ -2,6 +2,7 @@ package com.jumpserver.sdk.v2.httpclient;
 
 import com.alibaba.fastjson.JSON;
 import com.google.common.net.MediaType;
+import org.apache.http.Header;
 import org.apache.http.client.entity.EntityBuilder;
 import org.apache.http.client.methods.*;
 import org.apache.http.client.utils.URIBuilder;
@@ -69,7 +70,6 @@ public final class HttpCommand<R> {
     public CloseableHttpResponse execute() throws Exception {
 
         EntityBuilder builder = null;
-
         if (request.getEntity() != null) {
             if (InputStream.class.isAssignableFrom(request.getEntity().getClass())) {
                 InputStreamEntity ise = new InputStreamEntity((InputStream) request.getEntity(),
@@ -87,7 +87,9 @@ public final class HttpCommand<R> {
         if (builder != null && clientReq instanceof HttpEntityEnclosingRequestBase)
             ((HttpEntityEnclosingRequestBase) clientReq).setEntity(builder.build());
 
-        System.out.println("请求x-jms-org：" + clientReq.getHeaders("x-jms-org").length);
+        Header[] headers = clientReq.getHeaders("x-jms-org");
+        String x_jms_org = headers.length > 0 ? headers[0].getName() + ":" + headers[0].getValue() : null;
+        System.out.println("请求Header：" + x_jms_org);
         System.out.println("请求路径：" + clientReq.getURI());
         System.out.println("请求方式：" + clientReq.getMethod());
         return client.execute(clientReq);

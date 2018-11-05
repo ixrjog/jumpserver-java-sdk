@@ -19,15 +19,11 @@ public interface OrgService {
 
     ActionResponse deleteOrg(String orgId);
 
-    OrgUsers getOrgUsers(String orgId);
-
-    OrgUsers updateOrgUsers(OrgUsers orgusers);
+    List<OrgUsers> getOrgUsers(String orgId);
 
     OrgUsers createOrgUsers(OrgUsers orgusers);
 
-    OrgUsers getOrgAdmins(String orgId);
-
-    OrgUsers updateOrgAdmins(OrgUsers orgusers);
+    List<OrgUsers> getOrgAdmins(String orgId);
 
     OrgUsers createOrgAdmins(OrgUsers orgusers);
 

@@ -8,9 +8,11 @@ import com.jumpserver.sdk.v2.httpclient.HttpEntityHandler;
 import com.jumpserver.sdk.v2.httpclient.HttpExecutor;
 import com.jumpserver.sdk.v2.httpclient.HttpRequest;
 import com.jumpserver.sdk.v2.httpclient.HttpResponse;
+import com.jumpserver.sdk.v2.model.Org;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.List;
 import java.util.Map;
 
 public class OSAuthenticator {
@@ -30,6 +32,10 @@ public class OSAuthenticator {
         JSONObject jsonObject = new JSONObject();
         jsonObject.put("username", username);
         jsonObject.put("password", password);
+
+        if (endpoint.endsWith("/")) {
+            endpoint = endpoint.substring(0, endpoint.length() - 1);
+        }
 
         //获得token的请求
         HttpRequest<Token> request = HttpRequest.builder(Token.class)
@@ -65,9 +71,11 @@ public class OSAuthenticator {
         if (headers.get(ClientConstants.X_JMS_ORG) == null) {
             try {
                 //这个api存在就有xpack插件
-                client.orgs().listOrg();
-                token.setXpack(true);
-                client = JMSClientImpl.createSession(token, headers);
+                List<Org> orgs = client.orgs().listOrg();
+                if (orgs.size() <= 0) {
+                    token.setXpack(true);
+                    client = JMSClientImpl.createSession(token, headers);
+                }
             } catch (Exception e) {
                 LOG.error("访问xpack插件失败，不存在xpack插件");
                 e.printStackTrace();
