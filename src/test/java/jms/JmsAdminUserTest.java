@@ -12,13 +12,14 @@ import java.util.List;
 public class JmsAdminUserTest {
 
     private JMSClient os;
+    private String orgId = "ebd9edb1-a1bb-44b4-825a-399d46eea330";
 
     @Before
     public void token() {
         os = new ClientBuilder()
                 .endpoint("http://localhost:8088")
                 .credentials("admin", "admin")
-                .header("x-jms-org", "7c6955bc-f004-4573-b46a-4072b0dd0d03")
+                .header("x-jms-org", orgId)
                 .authenticate();
         System.out.println(os.getToken().getToken());
     }
@@ -62,10 +63,10 @@ public class JmsAdminUserTest {
         System.out.println(delete);
     }
 
-    @Test //TODO 待测试
+    @Test
     public void updateAdminUserAuth() {
         AdminUser adminUser = new AdminUser();
-        adminUser.setId("792732ce-9cd0-4cb9-af25-37cb843356f1");
+        adminUser.setId("a77c5c54-9cc6-4d06-8d27-ef502a7c429f");
         adminUser.setPassword("pssswofdd");
         adminUser.setPrivate_key("-----BEGIN RSA PRIVATE KEY-----\n" +
                 "MIIEowIBAAKCAQEAjcSD0EGmfTyexO4jDMF8Orw/eXM4t+rSzXDmzP1n8iqahhVV\n" +

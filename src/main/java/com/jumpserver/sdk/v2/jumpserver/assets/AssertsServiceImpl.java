@@ -155,7 +155,8 @@ public class AssertsServiceImpl extends BaseJMSService implements AssertsService
 
     @Override
     public AdminUser updateAdminUserAuthInfo(AdminUser adminUser) {
-        return patch(AdminUser.class, ClientConstants.SYSTEM_USERS_AUTHINFO, adminUser.getId(), "/").json(JSON.toJSONString(adminUser)).execute();
+        String url =  ClientConstants.ADMIN_USERS_AUTH.replace("{id}",adminUser.getId());
+        return patch(AdminUser.class, url).json(JSON.toJSONString(adminUser)).execute();
     }
 
     //系统用户
@@ -178,7 +179,8 @@ public class AssertsServiceImpl extends BaseJMSService implements AssertsService
 
     @Override
     public SystemUser updateSystemUserAuthInfo(SystemUser systemUser) {
-        return patch(SystemUser.class, ClientConstants.SYSTEM_USERS_AUTHINFO, systemUser.getId(), "/").json(JSON.toJSONString(systemUser)).execute();
+        String url = ClientConstants.SYSTEM_USERS_AUTHINFO.replace("{id}",systemUser.getId());
+        return patch(SystemUser.class, url).json(JSON.toJSONString(systemUser)).execute();
     }
 
     @Override
