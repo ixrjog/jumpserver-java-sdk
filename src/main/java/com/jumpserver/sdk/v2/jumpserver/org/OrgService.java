@@ -23,8 +23,12 @@ public interface OrgService {
 
     OrgUsers createOrgUsers(OrgUsers orgusers);
 
+    ActionResponse deleteOrgUsers(String orgId,String userId);
+
     List<OrgUsers> getOrgAdmins(String orgId);
 
     OrgUsers createOrgAdmins(OrgUsers orgusers);
+
+    ActionResponse deleteOrgAdmins(String orgId,String userId);
 
 }

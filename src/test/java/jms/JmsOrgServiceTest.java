@@ -23,10 +23,9 @@ public class JmsOrgServiceTest {
         os = new ClientBuilder()
                 .endpoint("http://localhost:8088")
                 .credentials("admin", "admin")
-//                .header("x-jms-org", "d9f6e19b-88c3-4e65-9fe4-d149ede003d7")
                 .authenticate();
         System.out.println(os.getToken().getToken());
-        orgId = "d9f6e19b-88c3-4e65-9fe4-d149ede003d7";
+        orgId = "3de08ad8-6478-4c11-8c1e-4211151d9e32";
     }
 
     @Test
@@ -78,6 +77,13 @@ public class JmsOrgServiceTest {
     }
 
     @Test
+    public void deleteOrgUses() {
+        String userId = "c45596ad-50d4-410e-acf1-3785a675fd9d";
+        ActionResponse actionResponse = os.orgs().deleteOrgUsers(orgId, userId);
+        System.out.println(actionResponse.toString());
+    }
+
+    @Test
     public void createOrgUsers() {
         OrgUsers object = new OrgUsers();
         object.setOrgId(orgId);
@@ -101,6 +107,13 @@ public class JmsOrgServiceTest {
         object.setUser("0e049ec7-d905-466b-bcfb-5a66334cae0c");
         OrgUsers objectBack = os.orgs().createOrgAdmins(object);
         System.out.println(objectBack.getUser());
+    }
+
+    @Test
+    public void deleteOrgAdmins() {
+        String userId = "c45596ad-50d4-410e-acf1-3785a675fd9d";
+        ActionResponse actionResponse = os.orgs().deleteOrgAdmins(orgId, userId);
+        System.out.println(actionResponse.toString());
     }
 
 }
