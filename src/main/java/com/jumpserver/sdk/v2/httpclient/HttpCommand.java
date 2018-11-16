@@ -87,7 +87,7 @@ public final class HttpCommand<R> {
         if (builder != null && clientReq instanceof HttpEntityEnclosingRequestBase)
             ((HttpEntityEnclosingRequestBase) clientReq).setEntity(builder.build());
 
-        Header[] headers = clientReq.getHeaders("x-jms-org");
+        //Header[] headers = clientReq.getHeaders("x-jms-org");
         //String x_jms_org = headers.length > 0 ? headers[0].getName() + ":" + headers[0].getValue() : null;
         //System.out.println("请求Header：" + x_jms_org);
         //System.out.println("请求路径：" + clientReq.getURI());
