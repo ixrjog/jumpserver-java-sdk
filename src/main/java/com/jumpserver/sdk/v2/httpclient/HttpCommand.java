@@ -80,7 +80,7 @@ public final class HttpCommand<R> {
                         .setText(JSON.toJSONString(request.getEntity()));
             }
         } else if (request.hasJson()) {
-            System.out.println("请求json:" + request.getJson());
+            //System.out.println("请求json:" + request.getJson());
             builder = EntityBuilder.create().setContentType(ContentType.APPLICATION_JSON).setText(request.getJson());
         }
 
@@ -88,10 +88,10 @@ public final class HttpCommand<R> {
             ((HttpEntityEnclosingRequestBase) clientReq).setEntity(builder.build());
 
         Header[] headers = clientReq.getHeaders("x-jms-org");
-        String x_jms_org = headers.length > 0 ? headers[0].getName() + ":" + headers[0].getValue() : null;
-        System.out.println("请求Header：" + x_jms_org);
-        System.out.println("请求路径：" + clientReq.getURI());
-        System.out.println("请求方式：" + clientReq.getMethod());
+        //String x_jms_org = headers.length > 0 ? headers[0].getName() + ":" + headers[0].getValue() : null;
+        //System.out.println("请求Header：" + x_jms_org);
+        //System.out.println("请求路径：" + clientReq.getURI());
+        //System.out.println("请求方式：" + clientReq.getMethod());
         return client.execute(clientReq);
     }
 

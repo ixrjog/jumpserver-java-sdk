@@ -54,7 +54,6 @@ public class HttpEntityHandler {
                 try {
                     InputStream inputStream = response.getInputStream();
                     text = IOUtils.toString(inputStream);
-                    System.out.println("异常信息：" + text);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
