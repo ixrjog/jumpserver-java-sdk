@@ -15,9 +15,6 @@ import java.util.Map;
 
 public class BaseJMSService {
 
-//    ServiceType serviceType = ServiceType.IDENTITY;
-//    Function<String, String> endpointFunc;
-
     private static ThreadLocal<String> reqIdContainer = new ThreadLocal<String>();
 
     public String getXOpenstackRequestId() {
@@ -26,15 +23,6 @@ public class BaseJMSService {
 
     protected BaseJMSService() {
     }
-
-//    protected BaseJMSService(ServiceType serviceType) {
-//        this(serviceType, null);
-//    }
-//
-//    protected BaseJMSService(ServiceType serviceType, Function<String, String> endpointFunc) {
-//        this.serviceType = serviceType;
-//        this.endpointFunc = endpointFunc;
-//    }
 
     protected <R> Invocation<R> get(Class<R> returnType, String... path) {
         return builder(returnType, path, HttpMethod.GET);
@@ -106,10 +94,8 @@ public class BaseJMSService {
                 .method(method).path(path);
         Map headers = ses.getHeaders();
         if (headers != null && headers.size() > 0) {
-//            return new Invocation<R>(req, serviceType, endpointFunc).headers(headers);
             return new Invocation<R>(req).headers(headers);
         } else {
-//            return new Invocation<R>(req, serviceType, endpointFunc);
             return new Invocation<R>(req);
         }
     }
@@ -117,12 +103,8 @@ public class BaseJMSService {
     protected static class Invocation<R> {
         HttpRequest.RequestBuilder<R> req;
 
-        //        protected Invocation(HttpRequest.RequestBuilder<R> req, ServiceType serviceType, Function<String, String> endpointFunc) {
-//        protected Invocation(HttpRequest.RequestBuilder<R> req, Function<String, String> endpointFunc) {
         protected Invocation(HttpRequest.RequestBuilder<R> req) {
             this.req = req;
-//            req.serviceType(serviceType);
-//            req.endpointFunction(endpointFunc);
         }
 
         public HttpRequest<R> getRequest() {
@@ -162,21 +144,10 @@ public class BaseJMSService {
             return this;
         }
 
-//        public Invo/*cation<R> serviceType(ServiceType serviceType) {
-//            req.serviceType(serviceType);
-//            return this;
-//        }*/
-
         public Invocation<R> entity(ModelEntity entity) {
             req.entity(entity);
             return this;
         }
-
-//        public Invocation<R> entity(Payload<?> entity) {
-//            req.entity(entity);
-//            req.contentType(ClientConstants.CONTENT_TYPE_OCTECT_STREAM);
-//            return this;
-//        }
 
         public Invocation<R> contentType(String contentType) {
             req.contentType(contentType);
@@ -200,7 +171,6 @@ public class BaseJMSService {
         }
 
         public R execute() {
-//            return execute(null);
             HttpRequest<R> request = req.build();
             HttpResponse res = HttpExecutor.create().execute(request);
             return res.getEntity(request.getReturnType());

@@ -8,6 +8,7 @@ import com.jumpserver.sdk.v2.jumpserver.org.OrgService;
 import com.jumpserver.sdk.v2.jumpserver.permissions.PermissionService;
 import com.jumpserver.sdk.v2.jumpserver.users.UserService;
 
+import java.util.HashMap;
 import java.util.Map;
 
 /**
@@ -20,10 +21,10 @@ public class JMSClientImpl implements JMSClient {
     private Map<String, Object> headers;
 
     @SuppressWarnings("rawtypes")
-    private static final ThreadLocal<JMSClientImpl> sessions = new ThreadLocal<JMSClientImpl>();
+    private static final Map<String, JMSClientImpl> map = new HashMap<>();
 
     public static JMSClientImpl getCurrent() {
-        return sessions.get();
+        return map.get("client");
     }
 
     @Override
@@ -58,7 +59,7 @@ public class JMSClientImpl implements JMSClient {
     private JMSClientImpl(Token token, Map<String, Object> headers) {
         this.headers = headers;
         this.token = token;
-        sessions.set(this);
+        map.put("client", this);
     }
 
     public Token getToken() {
