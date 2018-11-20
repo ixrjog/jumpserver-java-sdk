@@ -4,18 +4,11 @@ public final class ClientConstants {
 
     public static final String HEADER_AUTHORIZATION = "Authorization";
     public static final String BEARER = "Bearer ";
-    public static final String X_JMS_ORG = "X-JMS-ORG";
+    public static final String X_JMS_ORG = "x-jms-org";
 
     public static final String HEADER_CONTENT_TYPE = "Content-Type";
     public static final String HEADER_FOR_AUTH = "Auth-request";
     public static final String CONTENT_TYPE_JSON = "application/json";
-
-    public static final String HEADER_X_SUBJECT_TOKEN = "X-Subject-Token";
-    public static final String HEADER_ACCEPT = "Accept";
-    public static final String HEADER_USER_AGENT = "User-Agent";
-    public static final String CONTENT_TYPE_OCTECT_STREAM = "application/octet-stream";
-    public static final String CONTENT_TYPE_TEXT = "text/plain";
-    public static final String CONTENT_TYPE_TEXT_HTML = "text/html";
 
     // Paths
     public static final String TOKEN = "/api/users/v1/auth/";

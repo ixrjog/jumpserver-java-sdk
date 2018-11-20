@@ -32,11 +32,6 @@ public interface AssertsService {
 
     List<AssetsNode> listAssetsNodeChildren(String nodeId, AssetsNode node);
 
-    //节点下的资产
-//    AssetsNode createAssetsNodeVM(String nodeId, AssetsNode node);
-//
-//    AssetsNode deleteAssetsNodeVM(String nodeId, AssetsNode node);
-
     //资产
     List<Asset> list();
 

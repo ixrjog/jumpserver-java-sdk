@@ -12,8 +12,6 @@ public interface HttpResponse extends Closeable {
 
 	<T> List<T> getEntityList(Class<T> returnType);
 
-//	<T> T getEntity(Class<T> returnType, ExecutionOptions<T> options);
-
 	<T> T readEntity(Class<T> typeToReadAs);
 
 	<T> List<T> readEntityList(Class<T> typeToReadAs);

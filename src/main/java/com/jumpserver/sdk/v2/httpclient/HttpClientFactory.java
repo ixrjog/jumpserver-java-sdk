@@ -10,7 +10,6 @@ import org.slf4j.LoggerFactory;
 public class HttpClientFactory {
 
     public static final HttpClientFactory INSTANCE = new HttpClientFactory();
-    private static final Logger LOG = LoggerFactory.getLogger(HttpExecutor.class);
 
     private CloseableHttpClient client;
 
@@ -27,18 +26,19 @@ public class HttpClientFactory {
 
     private CloseableHttpClient buildClient(Config config) {
         HttpClientBuilder cb = HttpClientBuilder.create();
-//        HttpClientBuilder cb = HttpClientBuilder.create().setUserAgent(USER_AGENT);
+        //agent
+        //HttpClientBuilder cb = HttpClientBuilder.create().setUserAgent(USER_AGENT);
 
         //代理
-//        if (config.getProxy() != null) {
-//            try {
-//                URL url = new URL(config.getProxy().getHost());
-//                HttpHost proxy = new HttpHost(url.getHost(), config.getProxy().getPort(), url.getProtocol());
-//                cb.setProxy(proxy);
-//            } catch (MalformedURLException e) {
-//                LOG.error(e.getMessage(), e);
-//            }
-//        }
+        /*if (config.getProxy() != null) {
+            try {
+                URL url = new URL(config.getProxy().getHost());
+                HttpHost proxy = new HttpHost(url.getHost(), config.getProxy().getPort(), url.getProtocol());
+                cb.setProxy(proxy);
+            } catch (MalformedURLException e) {
+                LOG.error(e.getMessage(), e);
+            }
+        }*/
 
         if (config.isIgnoreSSLVerification()) {
             cb.setSslcontext(UntrustedSSL.getSSLContext());

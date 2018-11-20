@@ -101,7 +101,7 @@ public class JmsSystemUserTest {
         System.out.println(user.getName());
     }
 
-    @Test  //todo 待测试
+    @Test
     public void systemUserPush() {
         SystemUser user = os.assets().updateSystemUserPush("43ce643d-df31-4267-aadb-b9db3afec68b");
         System.out.println(user.getName());

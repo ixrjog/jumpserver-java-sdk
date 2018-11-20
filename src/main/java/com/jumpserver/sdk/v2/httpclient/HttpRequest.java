@@ -1,6 +1,5 @@
 package com.jumpserver.sdk.v2.httpclient;
 
-import com.google.common.base.Function;
 import com.google.common.collect.Maps;
 import com.jumpserver.sdk.v2.builder.JMSClientImpl;
 import com.jumpserver.sdk.v2.common.ClientConstants;
@@ -26,17 +25,10 @@ public class HttpRequest<R> {
     private Config config;
     private Map<String, List<Object>> queryParams;
     private Map<String, Object> headers = new HashMap<String, Object>();
-    private Function<String, String> endpointFunc;
 
     public HttpRequest() {
     }
 
-    public HttpRequest(String endpoint, String path, HttpMethod method, ModelEntity entity, Class<R> returnType) {
-        this.endpoint = endpoint;
-        this.path = path;
-        this.method = method;
-        this.entity = entity;
-    }
 
     public static RequestBuilder<Void> builder() {
         return new RequestBuilder<Void>(Void.class);
@@ -55,8 +47,6 @@ public class HttpRequest<R> {
     }
 
     public String getEndpoint() {
-        if (endpointFunc != null)
-            return endpointFunc.apply(endpoint);
         return endpoint;
     }
 
@@ -96,18 +86,12 @@ public class HttpRequest<R> {
         return !headers.isEmpty();
     }
 
-    public RequestBuilder<R> toBuilder() {
-        return new RequestBuilder<R>(this);
-    }
-
     public Config getConfig() {
         return config != null ? config : Config.DEFAULT;
     }
 
     public static final class RequestBuilder<R> {
         HttpRequest<R> request;
-//        EndpointTokenProvider provider;
-//        ServiceType service;
 
         public RequestBuilder(HttpRequest<R> request) {
             this.request = request;
@@ -143,73 +127,12 @@ public class HttpRequest<R> {
         }
 
         /**
-         * TODO delete
-         * A Function which allows manipulation of the endpoint depending on the service API utilizing it
-         *
-         * @param endpointFunc the function to modify the current endpoint into a resulting endpoint
-         * @return this
-         */
-        public RequestBuilder<R> endpointFunction(Function<String, String> endpointFunc) {
-            request.endpointFunc = endpointFunc;
-            return this;
-        }
-
-        /**
-         * Flags the request method as PUT
-         *
-         * @return the request builder
-         */
-        public RequestBuilder<R> methodPut() {
-            request.method = HttpMethod.PUT;
-            return this;
-        }
-
-        /**
-         * Flags the request method as GET
-         *
-         * @return the request builder
-         */
-        public RequestBuilder<R> methodGet() {
-            request.method = HttpMethod.GET;
-            return this;
-        }
-
-        /**
-         * Flags the request method as DELETE
-         *
-         * @return the request builder
-         */
-        public RequestBuilder<R> methodDelete() {
-            request.method = HttpMethod.DELETE;
-            return this;
-        }
-
-        /**
-         * Flags the request method as POST
-         *
-         * @return the request builder
-         */
-        public RequestBuilder<R> methodPost() {
-            request.method = HttpMethod.POST;
-            return this;
-        }
-
-        /**
          * @see HttpRequest#getEntity()
          */
         public RequestBuilder<R> entity(ModelEntity entity) {
             request.entity = entity;
             return this;
         }
-
-        /**
-         * @see HttpRequest#getEntity()
-         */
-//        public RequestBuilder<R> entity(Payload<?> entity) {
-//            if (entity != null)
-//                request.entity = entity.open();
-//            return this;
-//        }
 
         /**
          * Sets a client configuration to use with this session
@@ -241,17 +164,6 @@ public class HttpRequest<R> {
             request.getHeaders().put(name, value);
             return this;
         }
-
-        /**
-         * The endpoint Service Type
-         *
-         * @param service the service type
-         * @return the request builder
-         */
-//        public RequestBuilder<R> serviceType(ServiceType service) {
-//            this.service = service;
-//            return this;
-//        }
 
         /**
          * Adds a Key/Value based Query Param
@@ -328,19 +240,12 @@ public class HttpRequest<R> {
          * @return HttpRequest
          */
         public HttpRequest<R> build() {
-//            if (provider != null) {
-//                request.endpoint = provider.getEndpoint(service);
-//                if (provider.getTokenId() != null)
-//                    request.getHeaders().put(ClientConstants.HEADER_X_AUTH_TOKEN, provider.getTokenId());
-//            }
-//            return request;
             if (!request.headers.containsKey(ClientConstants.HEADER_FOR_AUTH)) {
                 JMSClientImpl ses = JMSClientImpl.getCurrent();
                 if (ses == null) {
                     throw new JmsException("Unable to retrieve current when building a  HttpRequest ");
                 }
                 request.getHeaders().put(ClientConstants.HEADER_AUTHORIZATION, ClientConstants.BEARER + ses.getToken().getToken());
-//                request.getHeaders().put(ClientConstants.X_JMS_ORG, "");
                 request.endpoint = ses.getToken().getEndpoint();
             }
             return request;

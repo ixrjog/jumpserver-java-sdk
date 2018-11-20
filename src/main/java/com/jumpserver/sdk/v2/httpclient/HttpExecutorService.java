@@ -1,6 +1,5 @@
 package com.jumpserver.sdk.v2.httpclient;
 
-import com.jumpserver.sdk.v2.builder.JMSClient;
 import com.jumpserver.sdk.v2.builder.JMSClientImpl;
 import com.jumpserver.sdk.v2.builder.OSAuthenticator;
 import com.jumpserver.sdk.v2.common.ClientConstants;
@@ -8,7 +7,7 @@ import org.apache.http.client.methods.CloseableHttpResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-public class HttpExecutorService{
+public class HttpExecutorService {
 
     private static final Logger LOG = LoggerFactory.getLogger(HttpExecutorService.class);
 
@@ -23,7 +22,6 @@ public class HttpExecutorService{
         }
     }
 
-
     private <R> HttpResponse invoke(HttpRequest<R> request) throws Exception {
 
         HttpCommand<R> command = HttpCommand.create(request);
@@ -37,10 +35,11 @@ public class HttpExecutorService{
     private <R> HttpResponse invokeRequest(HttpCommand<R> command) throws Exception {
         CloseableHttpResponse response = command.execute();
 
-        if (command.getRetries() == 0 && response.getStatusLine().getStatusCode() == 401 && !command.getRequest().getHeaders().containsKey(ClientConstants.HEADER_FOR_AUTH)) {
+        if (command.getRetries() == 0 && response.getStatusLine().getStatusCode() == 401
+                && !command.getRequest().getHeaders().containsKey(ClientConstants.HEADER_FOR_AUTH)) {
             try {
                 OSAuthenticator.reAuthenticate();
-                command.getRequest().getHeaders().put(ClientConstants.HEADER_AUTHORIZATION, JMSClientImpl.getCurrent().getToken());
+                command.getRequest().getHeaders().put(ClientConstants.HEADER_AUTHORIZATION, JMSClientImpl.getCurrent().getToken().getToken());
             } finally {
                 response.close();
             }

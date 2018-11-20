@@ -19,6 +19,8 @@ public class JMSClientTest {
                     .authenticate();
 
             System.out.println(os.getToken());
+            System.out.println(os.hasXpack());
+            System.out.println(os.getToken());
 
         } catch (Exception e) {
             e.printStackTrace();

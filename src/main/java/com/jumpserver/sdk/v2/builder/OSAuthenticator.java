@@ -62,24 +62,9 @@ public class OSAuthenticator {
             token.setUsername(username);
             token.setPassword(password);
             token.setEndpoint(endpoint);
-            token.setXpack(false);
             client = JMSClientImpl.createSession(token, headers);
         } catch (Exception e) {
             throw new AuthenticationException(e.getMessage());
-        }
-        //TODO 优化这个逻辑
-        if (headers.get(ClientConstants.X_JMS_ORG) == null) {
-            try {
-                //这个api存在就有xpack插件
-                List<Org> orgs = client.orgs().listOrg();
-                if (orgs.size() <= 0) {
-                    token.setXpack(true);
-                    client = JMSClientImpl.createSession(token, headers);
-                }
-            } catch (Exception e) {
-                LOG.error("访问xpack插件失败，不存在xpack插件");
-                e.printStackTrace();
-            }
         }
         return client;
     }

@@ -12,7 +12,7 @@
 </dependency>
 ```
 
-xpack examples: 
+- xpack examples: 
 ``` 
   JMSClient os = new ClientBuilder()
                   .endpoint("http://localhost:8088")
@@ -36,7 +36,9 @@ xpack examples:
   
 ```
 携带name为x-jms-org，value为组织Id的请求头，请看测试用例
-without xpack examples:
+
+
+- without xpack examples:
 ```
  JMSClient os = new ClientBuilder()
                   .endpoint("http://localhost:8088")

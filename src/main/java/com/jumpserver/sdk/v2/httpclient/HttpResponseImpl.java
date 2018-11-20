@@ -36,15 +36,6 @@ public class HttpResponseImpl implements HttpResponse {
         return response;
     }
 
-//    public <T> T getEntity(Class<T> returnType) {
-//        return getEntity(returnType, null);
-//    }
-
-//    @Override
-//    public <T> T getEntity(Class<T> returnType, ExecutionOptions<T> options) {
-//        return HttpEntityHandler.handle(this, returnType, options, Boolean.TRUE);
-//    }
-
     public <T> T getEntity(Class<T> returnType) {
         return HttpEntityHandler.handle(this, returnType, false);
     }
@@ -52,11 +43,6 @@ public class HttpResponseImpl implements HttpResponse {
     public <T> List<T> getEntityList(Class<T> returnType) {
         return HttpEntityHandler.handleList(this, returnType, true);
     }
-
-//    @Override
-//    public <T> T getEntity(Class<T> returnType, ExecutionOptions<T> options) {
-//        return HttpEntityHandler.handle(this, returnType, options, Boolean.TRUE);
-//    }
 
     public int getStatus() {
         return response.getStatusLine().getStatusCode();
@@ -93,7 +79,6 @@ public class HttpResponseImpl implements HttpResponse {
         return retHeaders;
     }
 
-    //TODO 最终来到这个位置，获得对象
     @Override
     public <T> T readEntity(Class<T> typeToReadAs) {
         HttpEntity entity = response.getEntity();
@@ -101,8 +86,6 @@ public class HttpResponseImpl implements HttpResponse {
             return null;
         }
         try {
-//            InputStream content = checkNotNull(entity.getContent(), "Entity content should not be null.");
-//            return ObjectMapperSingleton.getContext(typeToReadAs).readerFor(typeToReadAs).readValue(content);
             checkNotNull(entity.getContent(), "Entity content is null.");
             return JSON.parseObject(EntityUtils.toString(entity, "UTF-8"), typeToReadAs);
         } catch (Exception e) {

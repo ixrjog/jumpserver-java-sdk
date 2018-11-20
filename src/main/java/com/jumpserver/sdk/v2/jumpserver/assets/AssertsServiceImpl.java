@@ -74,21 +74,6 @@ public class AssertsServiceImpl extends BaseJMSService implements AssertsService
         return get(AssetsNode.class, replace(ClientConstants.NODES_CHILDREN, nodeId)).executeList();
     }
 
-//    //节点下资产
-//    @Override
-//    public AssetsNode createAssetsNodeVM(String nodeId, AssetsNode node) {
-//        checkNotNull(nodeId);
-//        checkNotNull(node);
-//        return post(AssetsNode.class, replace(ClientConstants.NODES_CHILDREN, nodeId))
-//                .json(JSON.toJSONString(node))
-//                .execute();
-//    }
-//
-//    @Override
-//    public AssetsNode deleteAssetsNodeVM(String nodeId, AssetsNode node) {
-//        return null;
-//    }
-
     //资产
     @Override
     public List<Asset> list() {
