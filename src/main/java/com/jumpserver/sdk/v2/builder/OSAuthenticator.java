@@ -47,7 +47,6 @@ public class OSAuthenticator {
                 .build();
 
         JMSClient client;
-        Token token;
         try {
             HttpResponse response = HttpExecutor.create().execute(request);
 
@@ -58,7 +57,7 @@ public class OSAuthenticator {
                     HttpEntityHandler.closeQuietly(response);
                 }
             }
-            token = response.getEntity(Token.class);
+            Token token = response.getEntity(Token.class);
             token.setUsername(username);
             token.setPassword(password);
             token.setEndpoint(endpoint);

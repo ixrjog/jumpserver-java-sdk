@@ -1,11 +1,22 @@
 package com.jumpserver.sdk.v2.builder;
 
+import com.jumpserver.sdk.v2.model.User;
+
 public class Token {
     private String token;
     private String endpoint;
     private String username;
     private String password;
     private boolean xpack;
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public Token() {
     }
