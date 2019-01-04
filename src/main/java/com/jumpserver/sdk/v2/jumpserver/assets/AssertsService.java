@@ -26,11 +26,11 @@ public interface AssertsService {
     ActionResponse deleteAssetsNode(String nodeId);
 
     //节点下的节点
-    AssetsNode createAssetsNodeChildren(String nodeId, AssetsNode node);
+    AssetsNode createAssetsNodeChildren(AssetsNode node);
 
     AssetsNode updateAssetsNodeChildren(String nodeId, AssetsNode node);
 
-    List<AssetsNode> listAssetsNodeChildren(String nodeId, AssetsNode node);
+    List<AssetsNode> listAssetsNodeChildren();
 
     //资产
     List<Asset> list();

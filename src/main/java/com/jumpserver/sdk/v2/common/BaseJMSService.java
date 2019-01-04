@@ -77,7 +77,7 @@ public class BaseJMSService {
     protected String replace(String path, String id) {
         if (path.length() == 0 || id.length() == 0)
             return path;
-        return path.replace("${id}", id);
+        return path.replace("{id}", id);
     }
 
     private <R> Invocation<R> builder(Class<R> returnType, String[] path, HttpMethod method) {

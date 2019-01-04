@@ -53,10 +53,9 @@ public class AssertsServiceImpl extends BaseJMSService implements AssertsService
 
     //节点下的子节点
     @Override
-    public AssetsNode createAssetsNodeChildren(String nodeId, AssetsNode node) {
-        checkNotNull(nodeId);
+    public AssetsNode createAssetsNodeChildren(AssetsNode node) {
         checkNotNull(node);
-        return post(AssetsNode.class, replace(ClientConstants.NODES_CHILDREN, nodeId))
+        return post(AssetsNode.class, ClientConstants.NODES_CHILDREN)
                 .json(JSON.toJSONString(node))
                 .execute();
     }
@@ -65,13 +64,13 @@ public class AssertsServiceImpl extends BaseJMSService implements AssertsService
     public AssetsNode updateAssetsNodeChildren(String nodeId, AssetsNode node) {
         checkNotNull(nodeId);
         checkNotNull(node);
-        return patch(AssetsNode.class, replace(ClientConstants.NODES_CHILDREN_ADD, nodeId))
+        return patch(AssetsNode.class, ClientConstants.NODES_CHILDREN_ADD, nodeId)
                 .json(JSON.toJSONString(node)).execute();
     }
 
     @Override
-    public List<AssetsNode> listAssetsNodeChildren(String nodeId, AssetsNode node) {
-        return get(AssetsNode.class, replace(ClientConstants.NODES_CHILDREN, nodeId)).executeList();
+    public List<AssetsNode> listAssetsNodeChildren() {
+        return get(AssetsNode.class, ClientConstants.NODES_CHILDREN).executeList();
     }
 
     //资产
