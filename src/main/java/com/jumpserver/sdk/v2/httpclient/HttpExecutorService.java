@@ -35,7 +35,7 @@ public class HttpExecutorService {
     private <R> HttpResponse invokeRequest(HttpCommand<R> command) throws Exception {
         CloseableHttpResponse response = command.execute();
 
-        if (command.getRetries() == 0 && response.getStatusLine().getStatusCode() == 401
+        if (command.getRetries() == 0 && (response.getStatusLine().getStatusCode() == 401 || response.getStatusLine().getStatusCode() == 403)
                 && !command.getRequest().getHeaders().containsKey(ClientConstants.HEADER_FOR_AUTH)) {
             try {
                 OSAuthenticator.reAuthenticate();
